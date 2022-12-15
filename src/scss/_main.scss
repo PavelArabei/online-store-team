@@ -1,0 +1,56 @@
+.main-page {
+    display: flex;
+
+    &__all-products {
+        width: 100%;
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px 0 10px;
+    }
+
+    &__allSort {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__configuratin {
+        display: flex;
+        gap: 5px;
+    }
+
+    &__small-configuration {
+    }
+
+    &__big-configuration {
+    }
+
+    &__sort {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__sort-tittle {
+        font-size: 24px;
+    }
+
+    &__sort-selector {
+    }
+
+    &__sort-direction {
+    }
+
+    &__results {
+        font-size: 24px;
+    }
+}
+.result {
+}

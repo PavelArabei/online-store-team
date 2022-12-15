@@ -36,15 +36,16 @@ module.exports = {
                     from: path.join(__dirname, 'src', 'favicon.ico'),
                     to: path.join(__dirname, 'dist'),
                 },
+                {
+                    from: path.join(__dirname, 'src', 'assets'),
+                    to: path.join(__dirname, 'dist', 'assets'),
+                },
             ],
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
     ],
-    //devServer: {
-    //    port: 4200,
-    //},
     module: {
         rules: [
             { test: /\.ts$/i, use: 'ts-loader' },
@@ -71,14 +72,3 @@ module.exports = {
         ],
     },
 };
-
-
-//в файле pacege.json
-//"scripts": {
-//  "dev": "webpack --mode development",
-//  "build": "webpack --mode production"
-//  "watch": "webpack --mode development --watch"
-//} -  и далее для запуска вебпака используем команыды
-//npm run dev - запуск в режиме разработки
-//npm run build - запуск в режиме минификации
-//"watch" - будет постоянно следить за изменением файлов

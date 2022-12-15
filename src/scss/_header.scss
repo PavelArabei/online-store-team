@@ -1,0 +1,44 @@
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        font-size: 36px;
+        color: black;
+    }
+
+    &__logo-span {
+        color: #ff630b;
+    }
+
+    &__total {
+    }
+
+    &__basket {
+        position: relative;
+    }
+}
+.basket-score {
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background-color: #00b754;
+    border-radius: 50%;
+    color: white;
+}

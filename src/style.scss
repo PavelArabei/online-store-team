@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import 'scss/nullstyle';
+@import 'scss/_header.scss';
+@import 'scss/_input.scss';
+@import 'scss/_filter.scss';
+@import 'scss/_main.scss';
+body {
+    font-family: 'Didact Gothic';
+}
+.container {
+    width: 1185px;
+    margin: 0 auto;
+}
+.main {
+    padding-top: 30px;
+    background-color: #fafafa;
+}

@@ -1,0 +1,68 @@
+input[type='range'] {
+    appearance: none;
+    width: 226px;
+    margin: 0;
+    padding: 0 2px;
+    /* Add some L/R padding to ensure box shadow of handle is shown */
+    overflow: hidden;
+    //border: 1px solid black;
+    border-radius: 100px;
+    outline: none;
+    background: linear-gradient(#ffcdb0, #ffcdb0) no-repeat center;
+    /* Use a linear gradient to generate only the 2px height background */
+    background-size: 100% 6px;
+    pointer-events: none;
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+
+    &::-webkit-slider-thumb {
+        height: 21px;
+        width: 8px;
+        border-radius: 28px;
+        background-color: #fff;
+        border: 1px solid black;
+        position: relative;
+        margin: 5px 0;
+        /* Add some margin to ensure box shadow is shown */
+        cursor: pointer;
+        appearance: none;
+        pointer-events: all;
+        box-shadow: 0 1px 3px 0.5px rgba(0, 0, 0, 0.25);
+        &::before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 13px;
+            left: 100%;
+            width: 2000px;
+            height: 2px;
+        }
+    }
+}
+
+.sub-range-category {
+    &__input-range {
+        position: relative;
+        height: 50px;
+    }
+
+    input[type='range'] {
+        position: absolute;
+
+        &:nth-child(1) {
+            &::-webkit-slider-thumb::before {
+                background-color: rgb(0, 0, 0);
+            }
+        }
+
+        &:nth-child(2) {
+            background: none;
+            &::-webkit-slider-thumb::before {
+                background-color: rgb(0, 0, 0);
+            }
+        }
+    }
+}
