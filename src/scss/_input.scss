@@ -1,68 +1,74 @@
-input[type='range'] {
-    appearance: none;
-    width: 226px;
-    margin: 0;
-    padding: 0 2px;
-    /* Add some L/R padding to ensure box shadow of handle is shown */
-    overflow: hidden;
-    //border: 1px solid black;
-    border-radius: 100px;
-    outline: none;
-    background: linear-gradient(#ffcdb0, #ffcdb0) no-repeat center;
-    /* Use a linear gradient to generate only the 2px height background */
-    background-size: 100% 6px;
-    pointer-events: none;
-
-    &:active,
-    &:focus {
-        outline: none;
-    }
-
-    &::-webkit-slider-thumb {
-        height: 21px;
-        width: 8px;
-        border-radius: 28px;
-        background-color: #fff;
-        border: 1px solid black;
-        position: relative;
-        margin: 5px 0;
-        /* Add some margin to ensure box shadow is shown */
-        cursor: pointer;
-        appearance: none;
-        pointer-events: all;
-        box-shadow: 0 1px 3px 0.5px rgba(0, 0, 0, 0.25);
-        &::before {
-            content: ' ';
-            display: block;
-            position: absolute;
-            top: 13px;
-            left: 100%;
-            width: 2000px;
-            height: 2px;
-        }
-    }
-}
-
 .sub-range-category {
     &__input-range {
         position: relative;
-        height: 50px;
-    }
-
-    input[type='range'] {
-        position: absolute;
-
-        &:nth-child(1) {
-            &::-webkit-slider-thumb::before {
-                background-color: rgb(0, 0, 0);
-            }
-        }
-
-        &:nth-child(2) {
+        z-index: 2;
+        & input {
+            position: absolute;
+            height: 5px;
+            width: 100%;
             background: none;
-            &::-webkit-slider-thumb::before {
-                background-color: rgb(0, 0, 0);
-            }
+            pointer-events: none;
+            -webkit-appearance: none;
         }
     }
+    &__range-lower,
+    &__range-upper {
+        &::-webkit-slider-thumb {
+            height: 21px;
+            width: 8px;
+            -webkit-appearance: none;
+            pointer-events: auto;
+            background: white;
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+    }
+    &__range-lower,
+    &__range-upper {
+        &::-moz-range-thumb {
+            height: 21px;
+            width: 8px;
+            -moz-appearance: none;
+            pointer-events: auto;
+            background: white;
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+    }
+
+    &__slider-range {
+        margin-bottom: 15px;
+        position: relative;
+        height: 4px;
+        width: 226px;
+        border-radius: 5px;
+        background-color: #ffcdb0;
+    }
+    &__slider-progress {
+        position: absolute;
+        left: 25%;
+        right: 25%;
+        height: 4px;
+        border-radius: 5px;
+        background-color: #ff630b;
+    }
+
+    &__input-number-all {
+        display: flex;
+        gap: 24px;
+        & input[type='number'] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    &__input-number {
+        border: 1px solid #e8e8e8;
+        width: 100px;
+        height: 18px;
+        border-radius: 3px;
+    }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }

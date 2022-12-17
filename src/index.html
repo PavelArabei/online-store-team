@@ -1,206 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="favicon.ico" type="image/ico" />
-        <title>Online-store</title>
-    </head>
-    <body>
-        <header class="header">
-            <div class="container">
-                <nav class="header__nav">
-                    <ul class="header__list">
-                        <li class="header__item">
-                            <a href="#"
-                                ><h1 class="header__logo">Music <span class="header__logo-span">World</span></h1></a
-                            >
-                        </li>
-                        <li class="header__item">
-                            <p class="header__total">Total: $4514</p>
-                            <a class="header__basket" href="#"
-                                ><img src="./assets/img/basket.png" alt="shopping basket" />
-                                <div class="basket-score">242</div></a
-                            >
-                        </li>
-                    </ul>
-                </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/ico" />
+    <title>Online-store</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="#"
+                ><h1 class="header__logo">Music <span class="header__logo-span">World</span></h1></a
+              >
+            </li>
+            <li class="header__item">
+              <p class="header__total">Total: $4514</p>
+              <a class="header__basket" href="#"
+                ><img src="./assets/img/basket.png" alt="shopping basket" />
+                <div class="basket-score">242</div></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <section class="main-page">
+          <aside class="main-page__filter">
+            <input class="main-page__search" placeholder="Search" type="search" />
+            <div class="main-page_filter-conteiner">
+              <div class="reset-copy">
+                <h2 class="reset-copy__title subtitle">Product Filters</h2>
+                <button class="reset-copy__reset button" type="reset">Reset</button>
+                <button class="reset-copy__copy button">Copy Link</button>
+              </div>
+              <div class="cub-category">
+                <h3 class="cub-category_title subtitle">Category</h3>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Guitars" id="Guitars" />
+                  <label class="cub-category_label" for="Guitars">Guitars</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="KeysMIDI" id="KeysMIDI" />
+                  <label class="cub-category_label" for="KeysMIDI">Keys / MIDI</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Drums" id="Drums" />
+                  <label class="cub-category_label" for="Drums">Drums</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="AmpsAndEffects" id="AmpsAndEffects" />
+                  <label class="cub-category_label" for="AmpsAndEffects">Amps and effects</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Accessories" id="Accessories" />
+                  <label class="cub-category_label" for="Accessories">Accessories</label>
+                </div>
+              </div>
+              <div class="cub-category">
+                <h3 class="cub-category_title subtitle">Brand</h3>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Gibson" id="Gibson" />
+                  <label class="cub-category_label" for="Gibson">Gibson</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Fender" id="Fender" />
+                  <label class="cub-category_label" for="Fender">Fender</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Ibanez" id="Ibanez" />
+                  <label class="cub-category_label" for="Ibanez">Ibanez</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Martin" id="Martin" />
+                  <label class="cub-category_label" for="Martin">Martin</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Dixon" id="Dixon" />
+                  <label class="cub-category_label" for="Dixon">Dixon</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="Laney" id="Laney" />
+                  <label class="cub-category_label" for="Laney">Laney</label>
+                </div>
+                <div class="cub-category_input-cb">
+                  <input class="cub-category_input" type="checkbox" name="AKG" id="AKG" />
+                  <label class="cub-category_label" for="AKG">AKG</label>
+                </div>
+              </div>
+              <div class="sub-range-category">
+                <h3 class="sub-range-category__title subtitle">Price range</h3>
+                <div class="sub-range-category__input-range" id="range-input1">
+                  <input
+                    class="sub-range-category__range-lower"
+                    min="0"
+                    max="10000"
+                    value="2500"
+                    type="range"
+                    id="range-lower2"
+                  />
+                  <input
+                    class="sub-range-category__range-upper"
+                    type="range"
+                    min="0"
+                    max="10000"
+                    value="7500"
+                    id="range-upper2"
+                  />
+                </div>
+                <div class="sub-range-category__slider-range" id="slider-range1">
+                  <div class="sub-range-category__slider-progress"></div>
+                </div>
+                <div class="sub-range-category__input-number-all" id="number-input1">
+                  <input
+                    class="sub-range-category__input-number input-min"
+                    placeholder="From"
+                    type="number"
+                    value="2500"
+                    id="number-lower2"
+                  />
+                  <input
+                    class="sub-range-category__input-number"
+                    placeholder="To"
+                    type="number"
+                    value="7500"
+                    id="number-upper2"
+                  />
+                </div>
+              </div>
+              <div class="sub-range-category">
+                <h3 class="subtitle">Stock</h3>
+                <div class="sub-range-category__input-range" id="range-input2">
+                  <input
+                    class="sub-range-category__range-lower"
+                    min="0"
+                    max="10000"
+                    value="2500"
+                    type="range"
+                    id="range-lower1"
+                  />
+                  <input
+                    class="sub-range-category__range-upper"
+                    type="range"
+                    min="0"
+                    max="10000"
+                    value="7500"
+                    id="range-upper1"
+                  />
+                </div>
+                <div class="sub-range-category__slider-range" id="slider-range2">
+                  <div class="sub-range-category__slider-progress"></div>
+                </div>
+                <div class="sub-range-category__input-number-all" id="number-input2">
+                  <input
+                    class="sub-range-category__input-number input-min"
+                    placeholder="From"
+                    type="number"
+                    value="2500"
+                    id="number-lower1"
+                  />
+                  <input
+                    class="sub-range-category__input-number"
+                    placeholder="To"
+                    type="number"
+                    value="7500"
+                    id="number-upper1"
+                  />
+                </div>
+              </div>
             </div>
-        </header>
-        <main class="main">
-            <div class="container">
-                <section class="main-page">
-                    <aside class="main-page__filter">
-                        <input class="main-page__search" placeholder="Search" type="search" />
-                        <div class="main-page_filter-conteiner">
-                            <div class="reset-copy">
-                                <h2 class="reset-copy__title subtitle">Product Filters</h2>
-                                <button class="reset-copy__reset button" type="reset">Reset</button>
-                                <button class="reset-copy__copy button">Copy Link</button>
-                            </div>
-                            <div class="cub-category">
-                                <h3 class="cub-category_title subtitle">Category</h3>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Guitars" id="Guitars" />
-                                    <label class="cub-category_label" for="Guitars">Guitars</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="KeysMIDI" id="KeysMIDI" />
-                                    <label class="cub-category_label" for="KeysMIDI">Keys / MIDI</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Drums" id="Drums" />
-                                    <label class="cub-category_label" for="Drums">Drums</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input
-                                        class="cub-category_input"
-                                        type="checkbox"
-                                        name="AmpsAndEffects"
-                                        id="AmpsAndEffects"
-                                    />
-                                    <label class="cub-category_label" for="AmpsAndEffects">Amps and effects</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input
-                                        class="cub-category_input"
-                                        type="checkbox"
-                                        name="Accessories"
-                                        id="Accessories"
-                                    />
-                                    <label class="cub-category_label" for="Accessories">Accessories</label>
-                                </div>
-                            </div>
-                            <div class="cub-category">
-                                <h3 class="cub-category_title subtitle">Brand</h3>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Gibson" id="Gibson" />
-                                    <label class="cub-category_label" for="Gibson">Gibson</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Fender" id="Fender" />
-                                    <label class="cub-category_label" for="Fender">Fender</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Ibanez" id="Ibanez" />
-                                    <label class="cub-category_label" for="Ibanez">Ibanez</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Martin" id="Martin" />
-                                    <label class="cub-category_label" for="Martin">Martin</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Dixon" id="Dixon" />
-                                    <label class="cub-category_label" for="Dixon">Dixon</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="Laney" id="Laney" />
-                                    <label class="cub-category_label" for="Laney">Laney</label>
-                                </div>
-                                <div class="cub-category_input-cb">
-                                    <input class="cub-category_input" type="checkbox" name="AKG" id="AKG" />
-                                    <label class="cub-category_label" for="AKG">AKG</label>
-                                </div>
-                            </div>
-                            <div class="sub-range-category">
-                                <h3 class="sub-range-category__title subtitle">Price range</h3>
-                                <div class="sub-range-category__input-range">
-                                    <input
-                                        class="sub-range-category__range-lower"
-                                        min="0"
-                                        max="50"
-                                        value="5"
-                                        type="range"
-                                        id="range-lower2"
-                                    />
-                                    <input
-                                        class="sub-range-category__range-upper"
-                                        type="range"
-                                        min="0"
-                                        max="50"
-                                        value="40"
-                                        id="range-upper2"
-                                    />
-                                </div>
-                                <div class="sub-range-category__input-number-all">
-                                    <input
-                                        class="sub-range-category__input-number"
-                                        placeholder="From"
-                                        type="number"
-                                        id="number-lower2"
-                                    />
-                                    <input
-                                        class="sub-range-category__input-number"
-                                        placeholder="To"
-                                        type="number"
-                                        id="number-upper2"
-                                    />
-                                </div>
-                            </div>
-                            <div class="sub-range-category">
-                                <h3 class="subtitle">Stock</h3>
-                                <div class="sub-range-category__input-range">
-                                    <input
-                                        class="sub-range-category__range-lower"
-                                        min="0"
-                                        max="50"
-                                        value="5"
-                                        type="range"
-                                        id="range-lower1"
-                                    />
-                                    <input
-                                        class="sub-range-category__range-upper"
-                                        type="range"
-                                        min="0"
-                                        max="50"
-                                        value="40"
-                                        id="range-upper1"
-                                    />
-                                </div>
-                                <div class="sub-range-category__input-number-all">
-                                    <input
-                                        class="sub-range-category__input-number"
-                                        placeholder="From"
-                                        type="number"
-                                        id="number-lower1"
-                                    />
-                                    <input
-                                        class="sub-range-category__input-number"
-                                        placeholder="To"
-                                        type="number"
-                                        id="number-upper1"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                    <section class="main-page__all-products">
-                        <div class="main-page__header">
-                            <div class="main-page__allSort">
-                                <div class="main-page__configuratin">
-                                    <img
-                                        class="main-page__small-configuration"
-                                        src="./assets/img/smallConfiguration.png"
-                                        alt="small configuration"
-                                    />
-                                    <img
-                                        class="main-page__big-configuration"
-                                        src="./assets/img/bigConfiguration.png"
-                                        alt="big configuration"
-                                    />
-                                </div>
-                                <div class="main-page__sort">
-                                    <p class="main-page__sort-tittle">Sort:</p>
-                                    <img class="main-page__sort-selector" src="./assets/img/array.png" alt="" />
-                                    <img class="main-page__sort-direction" src="./assets/img/direction.png" alt="" />
-                                </div>
-                            </div>
-                            <p class="main-page__results"><span class="result">23</span> search results</p>
-                        </div>
-                    </section>
-                </section>
+          </aside>
+          <section class="main-page__all-products">
+            <div class="main-page__header">
+              <div class="main-page__allSort">
+                <div class="main-page__configuratin">
+                  <img
+                    class="main-page__small-configuration"
+                    src="./assets/img/smallConfiguration.png"
+                    alt="small configuration"
+                  />
+                  <img
+                    class="main-page__big-configuration"
+                    src="./assets/img/bigConfiguration.png"
+                    alt="big configuration"
+                  />
+                </div>
+                <div class="main-page__sort">
+                  <p class="main-page__sort-tittle">Sort:</p>
+                  <img class="main-page__sort-selector" src="./assets/img/array.png" alt="" />
+                  <img class="main-page__sort-direction" src="./assets/img/direction.png" alt="" />
+                </div>
+              </div>
+              <p class="main-page__results"><span class="result">23</span> search results</p>
             </div>
-        </main>
-    </body>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
