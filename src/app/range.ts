@@ -1,28 +1,41 @@
+import { isHTMLElem } from './helpFunction';
+
 interface InputRangeAndNumbInterface {
-  rangeInput: NodeListOf<Element>;
-  numInput: NodeListOf<Element>;
-  progress: HTMLDivElement;
+  rangeInput: NodeListOf<Element> | HTMLElement[];
+
+  numInput: NodeListOf<Element> | HTMLElement[];
+
+  progress: HTMLElement;
+
   priceGap: number;
+
   inputRangeLeft: HTMLInputElement;
+
   inputRangeRight: HTMLInputElement;
+
   priceInputLeft: HTMLInputElement;
+
   priceInputRight: HTMLInputElement;
+
   rangeToNumb(): void;
+
   numbToRange(): void;
+
+  rangeAndNumb(): void;
 }
 export class InputRangeAndNumb implements InputRangeAndNumbInterface {
-  rangeInput: NodeListOf<Element>;
-  numInput: NodeListOf<Element>;
-  progress: HTMLDivElement;
+  rangeInput: NodeListOf<Element> | HTMLElement[];
+  numInput: NodeListOf<Element> | HTMLElement[];
+  progress: HTMLElement;
   priceGap: number;
   inputRangeLeft: HTMLInputElement;
   inputRangeRight: HTMLInputElement;
   priceInputLeft: HTMLInputElement;
   priceInputRight: HTMLInputElement;
   constructor(
-    rangeInput: NodeListOf<Element>,
-    numInput: NodeListOf<Element>,
-    progress: HTMLDivElement,
+    rangeInput: NodeListOf<Element> | HTMLElement[],
+    numInput: NodeListOf<Element> | HTMLElement[],
+    progress: HTMLElement,
     priceGap: number
   ) {
     this.rangeInput = rangeInput;
@@ -73,6 +86,10 @@ export class InputRangeAndNumb implements InputRangeAndNumbInterface {
       });
     });
   }
+  rangeAndNumb(): void {
+    this.numbToRange();
+    this.rangeToNumb();
+  }
 }
 const rangeInput = document.querySelectorAll('#range-input1 input'),
   numInput = document.querySelectorAll('#number-input1 input'),
@@ -85,12 +102,3 @@ const rangeInput2 = document.querySelectorAll('#range-input2 input'),
 const firsInputToInput = new InputRangeAndNumb(rangeInput, numInput, progress, 100);
 const secondInputToInput = new InputRangeAndNumb(rangeInput2, numInput2, progress2, 10);
 export const inputRangeAndNumbArr = [firsInputToInput, secondInputToInput];
-
-function isHTMLElem(element: EventTarget | null) {
-  if (element === null) throw new Error('Element was not found!');
-  if (!(element instanceof HTMLElement)) throw new TypeError('Element is not HTML!');
-  return element;
-}
-export function getElementBySelector(element: HTMLElement | Document, selector: string) {
-  isHTMLElem(element.querySelector(selector));
-}
