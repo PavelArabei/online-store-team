@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" type="image/ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Chathura:wght@100;400&family=Didact+Gothic&display=swap" rel="stylesheet">
     <title>Online-store</title>
   </head>
   <body>
@@ -31,150 +32,7 @@
     <main class="main">
       <div class="container">
         <section class="main-page">
-          <aside class="main-page__filter">
-            <input class="main-page__search" placeholder="Search" type="search" />
-            <div class="main-page_filter-conteiner">
-              <div class="reset-copy">
-                <h2 class="reset-copy__title subtitle">Product Filters</h2>
-                <button class="reset-copy__reset button" type="reset">Reset</button>
-                <button class="reset-copy__copy button">Copy Link</button>
-              </div>
-              <div class="cub-category">
-                <h3 class="cub-category_title subtitle">Category</h3>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Guitars" id="Guitars" />
-                  <label class="cub-category_label" for="Guitars">Guitars</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="KeysMIDI" id="KeysMIDI" />
-                  <label class="cub-category_label" for="KeysMIDI">Keys / MIDI</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Drums" id="Drums" />
-                  <label class="cub-category_label" for="Drums">Drums</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="AmpsAndEffects" id="AmpsAndEffects" />
-                  <label class="cub-category_label" for="AmpsAndEffects">Amps and effects</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Accessories" id="Accessories" />
-                  <label class="cub-category_label" for="Accessories">Accessories</label>
-                </div>
-              </div>
-              <div class="cub-category">
-                <h3 class="cub-category_title subtitle">Brand</h3>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Gibson" id="Gibson" />
-                  <label class="cub-category_label" for="Gibson">Gibson</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Fender" id="Fender" />
-                  <label class="cub-category_label" for="Fender">Fender</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Ibanez" id="Ibanez" />
-                  <label class="cub-category_label" for="Ibanez">Ibanez</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Martin" id="Martin" />
-                  <label class="cub-category_label" for="Martin">Martin</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Dixon" id="Dixon" />
-                  <label class="cub-category_label" for="Dixon">Dixon</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="Laney" id="Laney" />
-                  <label class="cub-category_label" for="Laney">Laney</label>
-                </div>
-                <div class="cub-category_input-cb">
-                  <input class="cub-category_input" type="checkbox" name="AKG" id="AKG" />
-                  <label class="cub-category_label" for="AKG">AKG</label>
-                </div>
-              </div>
-              <div class="sub-range-category">
-                <h3 class="sub-range-category__title subtitle">Price range</h3>
-                <div class="sub-range-category__input-range" id="range-input1">
-                  <input
-                    class="sub-range-category__range-lower"
-                    min="0"
-                    max="10000"
-                    value="2500"
-                    type="range"
-                    id="range-lower2"
-                  />
-                  <input
-                    class="sub-range-category__range-upper"
-                    type="range"
-                    min="0"
-                    max="10000"
-                    value="7500"
-                    id="range-upper2"
-                  />
-                </div>
-                <div class="sub-range-category__slider-range" id="slider-range1">
-                  <div class="sub-range-category__slider-progress"></div>
-                </div>
-                <div class="sub-range-category__input-number-all" id="number-input1">
-                  <input
-                    class="sub-range-category__input-number input-min"
-                    placeholder="From"
-                    type="number"
-                    value="2500"
-                    id="number-lower2"
-                  />
-                  <input
-                    class="sub-range-category__input-number"
-                    placeholder="To"
-                    type="number"
-                    value="7500"
-                    id="number-upper2"
-                  />
-                </div>
-              </div>
-              <div class="sub-range-category">
-                <h3 class="subtitle">Stock</h3>
-                <div class="sub-range-category__input-range" id="range-input2">
-                  <input
-                    class="sub-range-category__range-lower"
-                    min="0"
-                    max="10000"
-                    value="2500"
-                    type="range"
-                    id="range-lower1"
-                  />
-                  <input
-                    class="sub-range-category__range-upper"
-                    type="range"
-                    min="0"
-                    max="10000"
-                    value="7500"
-                    id="range-upper1"
-                  />
-                </div>
-                <div class="sub-range-category__slider-range" id="slider-range2">
-                  <div class="sub-range-category__slider-progress"></div>
-                </div>
-                <div class="sub-range-category__input-number-all" id="number-input2">
-                  <input
-                    class="sub-range-category__input-number input-min"
-                    placeholder="From"
-                    type="number"
-                    value="2500"
-                    id="number-lower1"
-                  />
-                  <input
-                    class="sub-range-category__input-number"
-                    placeholder="To"
-                    type="number"
-                    value="7500"
-                    id="number-upper1"
-                  />
-                </div>
-              </div>
-            </div>
-          </aside>
+          <aside class="main-page__filter"></aside>
           <section class="main-page__all-products">
             <div class="main-page__header">
               <div class="main-page__allSort">
@@ -192,15 +50,57 @@
                 </div>
                 <div class="main-page__sort">
                   <p class="main-page__sort-tittle">Sort:</p>
-                  <img class="main-page__sort-selector" src="./assets/img/array.png" alt="" />
+                  <div class="main-page__sort-selector">
+                    <p>price</p>
+                    <img class="main-page__sort-img" src="./assets/img/array.png" alt="" />
+                  </div>
                   <img class="main-page__sort-direction" src="./assets/img/direction.png" alt="" />
                 </div>
               </div>
               <p class="main-page__results"><span class="result">23</span> search results</p>
             </div>
+            <div class="gallery"></div>
           </section>
         </section>
       </div>
+      <!-- <div class="item-page">
+        <div class="item-page__item-images">
+          <div class="item-page__main-image-container">
+            <img src="./assets/img/DELETE-THIS-big.jpg" alt="" class="item-page__main-image">
+          </div>
+          <div class="item-page__images-preview-container">
+            <div class="item-page__thumbnail-container">
+              <img src="./assets/img/DELETE-THIS-thumb.jpg" alt="" class="item-page__thumbnail">
+            </div>
+            <div class="item-page__thumbnail-container">
+              <img src="./assets/img/DELETE-THIS-thumb.jpg" alt="" class="item-page__thumbnail">
+            </div>
+          </div>
+        </div>
+        <div class="item-page__right-block">
+          <h2 class="item-page__heading">Crown XLS 1002 DriveCore2</h2>
+          <span class="item-page__price">$ 4645</span>
+          <p class="item-page__description">
+            The Crown XLS 1002 DriveCore 2 is the successor of the successful first Drive-Core generation. It performs 2x 350 watts into 4 ohms. Due to its neutral sound, excellent dynamics and enormous headroom, it is versatile.
+          </p>
+          <div class="item-page__purchase-buttons-container">
+            <a href="#" class="item-page__add-button">Add to cart</a>
+            <a href="#" class="item-page__buy-now-button">Buy now</a>
+          </div>
+          <div class="item-page__rating-stars-container">
+            <img src="./assets/img/icons/star-full.svg" alt="" class="item-page__star">
+            <img src="./assets/img/icons/star-full.svg" alt="" class="item-page__star">
+            <img src="./assets/img/icons/star-full.svg" alt="" class="item-page__star">
+            <img src="./assets/img/icons/star-full.svg" alt="" class="item-page__star">
+            <img src="./assets/img/icons/star-empty.svg" alt="" class="item-page__star">
+          </div>
+          <div class="item-page__item-info">
+            <p class="item-page__stock">Stock: <span class="item-page__stock-data">94</span></p>
+            <p class="item-page__brand">Brand: <span class="item-page__brand-data">Ibanez</span></p>
+            <p class="item-page__rating">Rating: <span class="item-page__rating-data">4.9</span></p>
+          </div>
+        </div>
+      </div> -->
     </main>
   </body>
 </html>

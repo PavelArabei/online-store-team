@@ -4,14 +4,16 @@
 @import 'scss/_input.scss';
 @import 'scss/_filter.scss';
 @import 'scss/_main.scss';
+@import 'scss/_itemPage.scss';
+@import 'scss/_gallery.scss';
 body {
-    font-family: 'Didact Gothic';
+  font-family: 'Didact Gothic', sans-serif;
 }
 .container {
-    width: 1185px;
-    margin: 0 auto;
+  width: 1185px;
+  margin: 0 auto;
 }
 .main {
-    padding-top: 30px;
-    background-color: #fafafa;
+  padding-top: 30px;
+  background-color: #fafafa;
 }
