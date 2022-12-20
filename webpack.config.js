@@ -1,3 +1,4 @@
+/* eslint-disable */
 const path = require('path');
 const EslingPlugin = require('eslint-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
@@ -50,8 +51,8 @@ module.exports = {
         rules: [
             { test: /\.ts$/i, use: 'ts-loader' },
             {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                test: /\.?(s)css$/i,
+                use: [MiniCssExtractPlugin.loader,  'css-loader', 'sass-loader'],
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
