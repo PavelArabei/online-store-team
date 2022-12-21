@@ -68,3 +68,4 @@ export class RangeCategory {
     this.createRangeAndInput(10000, 2500, 7500, 500, 'Stock');
   }
 }
+
