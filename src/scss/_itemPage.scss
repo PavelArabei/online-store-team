@@ -1,0 +1,88 @@
+.item-page {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 18px 10px rgba(0, 0, 0, 0.04);
+  width: 1000px;
+  padding: 35px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 30px;
+  box-shadow: 0px 0px 18px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  &__item-images {
+    display: flex;
+    flex-direction: column;
+  }
+  &__images-preview-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px
+  }
+  &__main-image {
+    width: 350px;
+    height: 350px;
+  }
+  &__thumbnail {
+    width: 49px;
+  }
+
+  &__heading {
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 38px;
+  }
+  &__right-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+  &__price {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #940000;
+    margin: 10px 0px;
+  }
+  &__description {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &__purchase-buttons-container {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    margin: 30px 0px;
+    border-bottom: #FF630B;
+  }
+  &__add-button,
+  &__buy-now-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 118px;
+    height: 42px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    transition: 0.3s ease opacity;
+  }
+  &__add-button:hover,
+  &__buy-now-button:hover {
+    opacity: 0.8;
+  }
+  &__add-button {
+    background: #FF630B;
+  }
+  &__buy-now-button {
+    background: #007505;
+  }
+  
+  &__rating-stars-container {
+    padding-bottom: 30px;
+  }
+  &__item-info {
+    font-size: 16px;
+    line-height: 21px;
+    color: #494949;
+  }
+}
+
