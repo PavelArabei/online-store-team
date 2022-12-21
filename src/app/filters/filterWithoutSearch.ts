@@ -23,4 +23,3 @@ export class FilterWithoutSearch {
     this.rangeCategory.createAll();
   }
 }
-
