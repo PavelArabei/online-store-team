@@ -1,4 +1,3 @@
-import { isHTMLElem } from '../../helpers/helpFunction';
 import { create } from '../../helpers/helpFunction';
 import { products } from '../../data/products';
 interface ProductInterface {
@@ -15,16 +14,19 @@ interface ProductInterface {
   images: string[];
 }
 
-class Gallery {
-  body: HTMLElement;
+export class Gallery {
+  galleryElement: HTMLElement;
   products: ProductInterface[];
-  constructor(body: HTMLElement, products: ProductInterface[]) {
-    this.body = body;
+  constructor() {
+    this.galleryElement = document.createElement('div');
+    this.galleryElement.classList.add('gallery');
     this.products = products;
+    console.log(this.products);
+    this.createGallery();
   }
   createGallery(): void {
     for (let i = 0; i < this.products.length; i++) {
-      const item = create('div', 'gallery__item', this.body, undefined, ['id', `${this.products[i].id}`]);
+      const item = create('div', 'gallery__item', this.galleryElement, undefined, ['id', `${this.products[i].id}`]);
       const imgContainer = create('div', 'gallery__img', item);
       create(
         'img',
@@ -44,5 +46,3 @@ class Gallery {
     }
   }
 }
-const body = isHTMLElem(document.querySelector('.gallery'));
-export const gallery = new Gallery(body, products);
