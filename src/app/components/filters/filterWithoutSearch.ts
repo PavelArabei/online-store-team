@@ -1,6 +1,6 @@
 import { RestAndCopy } from './rest-copy';
 import { SubCategory } from './subCategory';
-import { products } from '../products';
+import { products } from '../../data/products';
 import { RangeCategory } from './rangeCategory';
 export class FilterWithoutSearch {
   body: HTMLElement;

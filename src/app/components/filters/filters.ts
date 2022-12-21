@@ -1,5 +1,5 @@
-import { create } from '../helpFunction';
-import { isHTMLElem } from '../helpFunction';
+import { create } from '../../helpers/helpFunction';
+import { isHTMLElem } from '../../helpers/helpFunction';
 import { Search } from './search';
 import { FilterWithoutSearch } from './filterWithoutSearch';
 export class Filter {

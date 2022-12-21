@@ -1,5 +1,5 @@
-import { create } from '../helpFunction';
-import { InputRangeAndNumb } from '../range';
+import { create } from '../../helpers/helpFunction';
+import { InputRangeAndNumb } from './range';
 export class RangeCategory {
   body: HTMLElement;
   constructor(body: HTMLElement) {

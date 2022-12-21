@@ -1,5 +1,5 @@
 import { ProductInterface } from '../../interfaces/interfaces';
-import { create } from '../../helpFunction';
+import { create } from '../../helpers/helpFunction';
 
 export class ItemPageView {
   item: ProductInterface;

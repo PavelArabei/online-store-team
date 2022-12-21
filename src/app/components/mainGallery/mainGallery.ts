@@ -1,6 +1,6 @@
-import { isHTMLElem } from './helpFunction';
-import { create } from './helpFunction';
-import { products } from './products';
+import { isHTMLElem } from '../../helpers/helpFunction';
+import { create } from '../../helpers/helpFunction';
+import { products } from '../../data/products';
 interface ProductInterface {
   id: number;
   title: string;

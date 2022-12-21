@@ -1,4 +1,4 @@
-import { create } from '../helpFunction';
+import { create } from '../../helpers/helpFunction';
 export class SubCategory {
   body: HTMLElement;
   arr: string[];

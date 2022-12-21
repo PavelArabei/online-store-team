@@ -1,4 +1,4 @@
-import { create } from '../helpFunction';
+import { create } from '../../helpers/helpFunction';
 interface SearchInterface {
   searchBody: HTMLElement;
   createAll(): void;

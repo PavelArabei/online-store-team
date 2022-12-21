@@ -1,4 +1,4 @@
-import { create } from '../helpFunction';
+import { create } from '../../helpers/helpFunction';
 export class RestAndCopy {
   body: HTMLElement;
   constructor(body: HTMLElement) {
