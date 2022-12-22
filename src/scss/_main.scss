@@ -55,12 +55,27 @@
   }
 
   &__sort-selector {
-    cursor: pointer;
+    position: relative;
+    margin-top: 3px;
+    gap: 3px;
     display: flex;
+    flex-direction: column;
+    overflow: visible;
+    width: 100px;
+    height: 28px;
     font-size: 24px;
     color: #ff630b;
+    z-index: 3;
+    overflow: hidden;
+    transition: all 0.5s;
   }
-
+  &__button-container {
+    display: flex;
+    cursor: pointer;
+  }
+  &__sort-item {
+    cursor: pointer;
+  }
   &__sort-direction {
   }
   &__sort-img {

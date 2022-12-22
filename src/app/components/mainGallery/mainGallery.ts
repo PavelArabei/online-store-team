@@ -1,5 +1,5 @@
 import { create } from '../../helpers/helpFunction';
-import { products } from '../../data/products';
+//import { products } from '../../data/products';
 interface ProductInterface {
   id: number;
   title: string;
@@ -15,9 +15,11 @@ interface ProductInterface {
 }
 
 export class Gallery {
+  body: HTMLElement;
   galleryElement: HTMLElement;
   products: ProductInterface[];
-  constructor() {
+  constructor(body: HTMLElement, products: ProductInterface[]) {
+    this.body = body;
     this.galleryElement = document.createElement('div');
     this.galleryElement.classList.add('gallery');
     this.products = products;
@@ -43,6 +45,7 @@ export class Gallery {
       const button = create('div', 'gallery__button', buttonPrice, 'Add to cart');
       button.classList.add('button');
       create('p', 'gallery__price', buttonPrice, `$${this.products[i].price}`);
+      this.body.append(this.galleryElement);
     }
   }
 }
