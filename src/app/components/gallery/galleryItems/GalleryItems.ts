@@ -1,4 +1,4 @@
-import { create } from '../../helpers/helpFunction';
+import { create } from '../../../helpers/helpFunction';
 //import { products } from '../../data/products';
 interface ProductInterface {
   id: number;
@@ -14,7 +14,7 @@ interface ProductInterface {
   images: string[];
 }
 
-export class Gallery {
+export class GalleryItems {
   body: HTMLElement;
   galleryElement: HTMLElement;
   products: ProductInterface[];

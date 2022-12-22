@@ -1,14 +1,9 @@
-import { create } from '../../helpers/helpFunction';
-interface SearchInterface {
-  searchBody: HTMLElement;
-  createAll(): void;
-}
-export class Search implements SearchInterface {
-  searchBody: HTMLElement;
-  constructor(searchBody: HTMLElement) {
-    this.searchBody = searchBody;
-  }
-  createAll(): void {
-    create('input', 'main-page__search', this.searchBody, undefined, ['placeholder', 'Search'], ['type', 'search']);
+export class Search {
+  container: HTMLElement;
+  constructor() {
+    this.container = document.createElement('input');
+    this.container.classList.add('main-page__search');
+    this.container.setAttribute('placeholder', 'Search');
+    this.container.setAttribute('type', 'Search');
   }
 }

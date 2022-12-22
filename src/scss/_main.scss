@@ -12,10 +12,6 @@
 .main-page {
   display: flex;
 
-  &__all-products {
-    width: 100%;
-  }
-
   &__header {
     width: 100%;
     display: flex;
@@ -75,7 +71,13 @@
   }
   &__sort-item {
     cursor: pointer;
+    background: #f8f8f8;
+    height: 30px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-left: 3px solid #ff630b;
   }
+
   &__sort-direction {
   }
   &__sort-img {
@@ -88,5 +90,4 @@
     font-size: 24px;
   }
 }
-.result {
-}
+
