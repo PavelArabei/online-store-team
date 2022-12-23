@@ -2,7 +2,7 @@
 import { create } from '../../../helpers/helpFunction';
 import { isHTMLElem } from '../../../helpers/helpFunction';
 export class GalleryHeader {
-  body: HTMLElement;
+  container: HTMLElement;
   smallConfiguration: HTMLElement;
   bigConfiguration: HTMLElement;
   sortButtonContainer: HTMLElement;
@@ -16,9 +16,9 @@ export class GalleryHeader {
   sortDirection: HTMLElement;
   resultNum: HTMLElement;
   constructor() {
-    this.body = document.createElement('div');
-    this.body.classList.add('main-page__header');
-    const allSort = create('div', 'main-page__allSort', this.body);
+    this.container = document.createElement('div');
+    this.container.classList.add('main-page__header');
+    const allSort = create('div', 'main-page__allSort', this.container);
     const configuration = create('div', 'main-page__configuratin', allSort);
     this.smallConfiguration = create(
       'img',
@@ -63,7 +63,7 @@ export class GalleryHeader {
     this.sortPriceDown = create('p', 'main-page__sort-item', this.sortButton, 'priceDown');
     this.sortRatingUp = create('p', 'main-page__sort-item', this.sortButton, 'ratingUp');
     this.sortRatingDown = create('p', 'main-page__sort-item', this.sortButton, 'ratingDown');
-    const result = create('p', 'main-page__results', this.body, ' search results');
+    const result = create('p', 'main-page__results', this.container, ' search results');
     this.resultNum = document.createElement('span');
     this.resultNum.textContent = '23';
     result.prepend(this.resultNum);

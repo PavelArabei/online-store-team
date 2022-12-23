@@ -1,16 +1,16 @@
 import { create } from '../../helpers/helpFunction';
 
 export class HeaderView {
-  headerElement: HTMLElement;
+  container: HTMLElement;
   totalAmountHtml: HTMLElement;
   _totalAmount: number;
   logoLink: HTMLElement;
   basketScoreHml: HTMLElement;
   _basketScoreAmount: number;
   constructor() {
-    this.headerElement = document.createElement('header');
-    this.headerElement.classList.add('header');
-    const container = create('div', 'container', this.headerElement);
+    this.container = document.createElement('header');
+    this.container.classList.add('header');
+    const container = create('div', 'container', this.container);
     const nav = create('nav', 'header__nav', container);
     const list = create('ul', 'header__list', nav);
     const item1 = create('li', 'header__item', list);

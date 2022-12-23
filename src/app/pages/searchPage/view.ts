@@ -1,7 +1,7 @@
 //import { Gallery } from './app/components/mainGallery/mainGallery';
-import { Filters } from '../components/filters/filters';
+import { Filters } from '../../components/filters/filters';
 //import { HeaderGallery } from './app/components/headerGallery/headerGalery';
-import { Gallery } from '../components/gallery/gallery';
+import { Gallery } from '../../components/gallery/gallery';
 
 export class SearchPage {
   container: HTMLElement;
@@ -21,6 +21,5 @@ export class SearchPage {
     this.container.append(this.filters.container);
     this.container.append(mainPage);
     mainPage.append(this.gallery.container);
-    document.body.append(this.container);
   }
 }
