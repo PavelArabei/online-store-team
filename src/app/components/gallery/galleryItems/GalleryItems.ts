@@ -11,7 +11,6 @@ export class GalleryItems {
     this.container = document.createElement('div');
     this.container.classList.add('gallery');
     this.products = products;
-    console.log(this.products);
     this.createGallery();
   }
   createGallery(): void {

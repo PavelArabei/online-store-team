@@ -62,7 +62,6 @@ export class ItemPageView {
     this.ratingData = create('span', 'item-page__rating-data', this.rating, `${this.item.rating}`);
 
     this.fillRatingStars();
-    console.log(this.item.rating);
   }
 
   fillRatingStars(): void {
