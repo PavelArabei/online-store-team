@@ -8,12 +8,12 @@ export class SubCategory {
   }
   createAll(): void {
     const cubCategory = create('div', 'cub-category', this.body);
-    const title = create('h2', 'cub-category_title', cubCategory, 'Category');
+    const title = create('h2', 'cub-category__title', cubCategory, 'Category');
     title.classList.add('subtitle');
     for (let i = 0; i < this.arr.length; i++) {
-      const inputBody = create('div', 'cub-category_input-cb', cubCategory);
-      create('input', 'cub-category_input', inputBody, undefined, ['type', 'checkbox'], ['id', `${this.arr[i]}`]);
-      create('label', 'cub-category_label', inputBody, `${this.arr[i]}`, ['for', `${this.arr[i]}`]);
+      const inputBody = create('div', 'cub-category__input-cb', cubCategory);
+      create('input', 'cub-category__input', inputBody, undefined, ['type', 'checkbox'], ['id', `${this.arr[i]}`]);
+      create('label', 'cub-category__label', inputBody, `${this.arr[i]}`, ['for', `${this.arr[i]}`]);
     }
   }
 }
