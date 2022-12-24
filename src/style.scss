@@ -8,12 +8,15 @@
 @import 'scss/_gallery.scss';
 body {
   font-family: 'Didact Gothic', sans-serif;
+  background-color: #fafafa;
 }
 .container {
   width: 1185px;
   margin: 0 auto;
 }
 .main {
-  padding-top: 30px;
+  margin-top: 30px;
   background-color: #fafafa;
+  display: flex;
+  justify-content: center;
 }

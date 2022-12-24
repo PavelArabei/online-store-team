@@ -3,17 +3,19 @@ import { SubCategory } from './subCategory';
 import { products } from '../../data/products';
 import { RangeCategory } from './rangeCategory';
 export class FilterWithoutSearch {
-  body: HTMLElement;
+  container: HTMLElement;
   restAndCopy: RestAndCopy;
   subCategory: SubCategory;
   subBrand: SubCategory;
   rangeCategory: RangeCategory;
-  constructor(body: HTMLElement) {
-    this.body = body;
-    this.restAndCopy = new RestAndCopy(this.body);
-    this.subCategory = new SubCategory(this.body, [...new Set(products.map((el) => el.category))]);
-    this.subBrand = new SubCategory(this.body, [...new Set(products.map((el) => el.brand))]);
-    this.rangeCategory = new RangeCategory(this.body);
+  constructor() {
+    this.container = document.createElement('div');
+    this.container.classList.add('main-page_filter-conteiner');
+    this.restAndCopy = new RestAndCopy(this.container);
+    this.subCategory = new SubCategory(this.container, [...new Set(products.map((el) => el.category))]);
+    this.subBrand = new SubCategory(this.container, [...new Set(products.map((el) => el.brand))]);
+    this.rangeCategory = new RangeCategory(this.container);
+    this.createAll();
   }
   createAll(): void {
     this.restAndCopy.createAll();

@@ -12,10 +12,6 @@
 .main-page {
   display: flex;
 
-  &__all-products {
-    width: 100%;
-  }
-
   &__header {
     width: 100%;
     display: flex;
@@ -55,10 +51,31 @@
   }
 
   &__sort-selector {
-    cursor: pointer;
+    position: relative;
+    margin-top: 3px;
+    gap: 3px;
     display: flex;
+    flex-direction: column;
+    overflow: visible;
+    width: 100px;
+    height: 28px;
     font-size: 24px;
     color: #ff630b;
+    z-index: 3;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  &__button-container {
+    display: flex;
+    cursor: pointer;
+  }
+  &__sort-item {
+    cursor: pointer;
+    background: #f8f8f8;
+    height: 30px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-left: 3px solid #ff630b;
   }
 
   &__sort-direction {
@@ -73,5 +90,4 @@
     font-size: 24px;
   }
 }
-.result {
-}
+
