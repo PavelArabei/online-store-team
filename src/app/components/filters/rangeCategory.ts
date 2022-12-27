@@ -2,8 +2,12 @@ import { create } from '../../helpers/helpFunction';
 import { InputRangeAndNumb } from './range';
 export class RangeCategory {
   body: HTMLElement;
+  inputFunc: InputRangeAndNumb;
+  inputValueArr: string[];
   constructor(body: HTMLElement) {
     this.body = body;
+    this.inputValueArr = [`0`, `5041`];
+    this.inputFunc = new InputRangeAndNumb([this.body, this.body], [this.body, this.body], this.body, 0);
   }
   createRangeAndInput(valueMax: number, valueStart: number, ValueEnd: number, gap: number, tittle: string): void {
     const rangeCategory = create('div', 'sub-range-category', this.body);
@@ -18,7 +22,7 @@ export class RangeCategory {
       undefined,
       ['min', '0'],
       ['max', `${valueMax}`],
-      ['value', `${valueStart}`],
+      ['value', `${0}`],
       ['type', 'range']
     );
     const inputRangeMax = create(
@@ -28,7 +32,7 @@ export class RangeCategory {
       undefined,
       ['min', '0'],
       ['max', `${valueMax}`],
-      ['value', `${ValueEnd}`],
+      ['value', `${valueMax}`],
       ['type', 'range']
     );
     const slider = create('div', 'sub-range-category__slider-range', rangeCategory);
@@ -41,7 +45,7 @@ export class RangeCategory {
       'sub-range-category__input-number',
       inputNumbContainer,
       undefined,
-      ['value', `${valueStart}`],
+      ['value', `0`],
       ['type', 'number']
     );
     inputNumLow.classList.add('input-min');
@@ -61,10 +65,17 @@ export class RangeCategory {
       sliderProgress,
       gap
     );
+    this.inputFunc = inputFunc;
     inputFunc.rangeAndNumb();
-  }
-  createAll() {
-    this.createRangeAndInput(5041, 1250, 3750, 300, 'Price range');
-    this.createRangeAndInput(10000, 2500, 7500, 500, 'Stock');
+    [inputRangeLower, inputNumLow].forEach((e) =>
+      e.addEventListener('input', () => {
+        this.inputValueArr[0] = inputFunc.priceInputLeft.value;
+      })
+    );
+    [inputRangeMax, inputNumMax].forEach((e) =>
+      e.addEventListener('input', () => {
+        this.inputValueArr[1] = inputFunc.priceInputRight.value;
+      })
+    );
   }
 }

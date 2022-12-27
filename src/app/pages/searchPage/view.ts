@@ -1,25 +1,28 @@
-//import { Gallery } from './app/components/mainGallery/mainGallery';
 import { Filters } from '../../components/filters/filters';
-//import { HeaderGallery } from './app/components/headerGallery/headerGalery';
 import { Gallery } from '../../components/gallery/gallery';
+import { products } from '../../data/products';
+
+interface ObjectValue {
+  [key: string]: string[] | string;
+}
 
 export class SearchPage {
   container: HTMLElement;
-
   gallery: Gallery;
   filters: Filters;
+  mainPage: HTMLElement;
+  mainObj: ObjectValue;
 
   constructor() {
-    this.gallery = new Gallery();
     this.filters = new Filters();
-
+    this.mainObj = this.filters.mainObj;
+    this.gallery = new Gallery(products);
     this.container = document.createElement('main');
     this.container.classList.add('main');
-
-    const mainPage = document.createElement('section');
-    mainPage.classList.add('main-page');
+    this.mainPage = document.createElement('section');
+    this.mainPage.classList.add('main-page');
     this.container.append(this.filters.container);
-    this.container.append(mainPage);
-    mainPage.append(this.gallery.container);
+    this.container.append(this.mainPage);
+    this.mainPage.append(this.gallery.container);
   }
 }

@@ -1,5 +1,4 @@
 import { ItemPageView } from './pages/itemPage/view';
-// import { ProductInterface } from './interfaces/interfaces';
 import { SearchPage } from './pages/searchPage/view';
 import { AppView } from './appView';
 
@@ -7,22 +6,28 @@ export class MainPageController {
   appView: AppView;
   contentClass: SearchPage | ItemPageView;
   constructor() {
-    this.contentClass = new SearchPage();
     this.appView = new AppView();
+    this.contentClass = this.appView.searchPage;
     this.generateSearchPageContent();
     this.appView.header.logoLink.addEventListener('click', this.generateSearchPageContent.bind(this));
+    this.appView.documentBody.addEventListener('input', this.addEventToCard.bind(this));
+    this.appView.searchPage.gallery.header.sortButtonArr.forEach((button) => {
+      button.addEventListener('click', this.addEventToCard.bind(this));
+    });
   }
 
-  generateSearchPageContent() {
-    this.contentClass = new SearchPage();
-    this.contentClass.gallery.galleryItems.cards.forEach((card) => {
+  addEventToCard() {
+    this.appView.searchPage.gallery.galleryItems.cards.forEach((card) => {
       card.container.addEventListener('click', () => {
         this.contentClass = new ItemPageView(card.data);
         this.appView.containerContent = this.contentClass.container;
-        console.log(this.contentClass);
       });
     });
+  }
+
+  generateSearchPageContent() {
+    this.contentClass = this.appView.searchPage;
+    this.addEventToCard();
     this.appView.containerContent = this.contentClass.container;
-    console.log(this.contentClass);
   }
 }

@@ -1,14 +1,17 @@
 import { HeaderView } from './components/header/view';
 import { SearchPage } from './pages/searchPage/view';
-// import { ItemPageView } from './pages/itemPage/view';
+import { SearchPageController } from './pages/searchPage/controller';
 
 export class AppView {
   header: HeaderView;
   searchPage: SearchPage;
   documentBody: HTMLElement;
   container: HTMLElement;
+  searchPageController: SearchPageController;
   constructor() {
-    this.searchPage = new SearchPage();
+    this.searchPageController = new SearchPageController();
+    //this.searchPage = new SearchPage();
+    this.searchPage = this.searchPageController.app;
     this.container = document.createElement('div');
     this.container.classList.add('container');
     this.documentBody = document.body;

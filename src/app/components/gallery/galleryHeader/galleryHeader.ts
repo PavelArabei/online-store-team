@@ -9,12 +9,12 @@ export class GalleryHeader {
   sortButton: HTMLElement;
   sortButtonText: HTMLElement;
   sortArray: HTMLElement;
-  sortPriceUp: HTMLElement;
-  sortPriceDown: HTMLElement;
-  sortRatingUp: HTMLElement;
-  sortRatingDown: HTMLElement;
+  noSort: HTMLElement;
+  sortPrice: HTMLElement;
+  sortRating: HTMLElement;
   sortDirection: HTMLElement;
   resultNum: HTMLElement;
+  sortButtonArr: HTMLElement[];
   constructor() {
     this.container = document.createElement('div');
     this.container.classList.add('main-page__header');
@@ -42,7 +42,7 @@ export class GalleryHeader {
     this.sortButton = create('div', 'main-page__sort-selector', sort);
     this.sortButtonContainer = create('div', 'main-page__button-container', this.sortButton);
     this.sortButton.addEventListener('click', this.openSortF);
-    this.sortButtonText = create('p', 'main-page__sort-paragraph', this.sortButtonContainer, 'price');
+    this.sortButtonText = create('p', 'main-page__sort-paragraph', this.sortButtonContainer, 'no-Sort');
     this.sortArray = create(
       'img',
       'main-page__sort-img',
@@ -59,10 +59,16 @@ export class GalleryHeader {
       ['src', './assets/img/direction.png'],
       ['alt', 'direction']
     );
-    this.sortPriceUp = create('p', 'main-page__sort-item', this.sortButton, 'priceUp');
-    this.sortPriceDown = create('p', 'main-page__sort-item', this.sortButton, 'priceDown');
-    this.sortRatingUp = create('p', 'main-page__sort-item', this.sortButton, 'ratingUp');
-    this.sortRatingDown = create('p', 'main-page__sort-item', this.sortButton, 'ratingDown');
+    this.noSort = create('p', 'main-page__sort-item', this.sortButton, 'no-Sort');
+    this.sortPrice = create('p', 'main-page__sort-item', this.sortButton, 'price');
+    this.sortRating = create('p', 'main-page__sort-item', this.sortButton, 'rating');
+    this.sortButtonArr = [this.noSort, this.sortPrice, this.sortRating];
+    this.sortButtonArr.forEach((e) => {
+      e.addEventListener('click', (e) => {
+        const targetText = isHTMLElem(e.target).textContent;
+        this.sortButtonText.textContent = targetText;
+      });
+    });
     const result = create('p', 'main-page__results', this.container, ' search results');
     this.resultNum = document.createElement('span');
     this.resultNum.textContent = '23';
