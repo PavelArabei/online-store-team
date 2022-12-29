@@ -25,6 +25,7 @@ export class GalleryItems {
 }
 
 export class GalleryCard {
+  private _added = false;
   container: HTMLElement;
   data: ProductInterface;
   button: HTMLElement;
