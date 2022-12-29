@@ -11,11 +11,7 @@ export class MainPageController {
     this.appView = new AppView();
     this.contentClass = this.appView.searchPage;
     this.generateSearchPageContent();
-    this.appView.header.logoLink.addEventListener('click', this.generateSearchPageContent.bind(this));
-    this.appView.documentBody.addEventListener('input', this.addCardEvents.bind(this));
-    this.appView.searchPage.gallery.header.sortButtonArr.forEach((button) => {
-      button.addEventListener('click', this.addCardEvents.bind(this));
-    });
+    this.appView.header.logoLink.addEventListener('click', this.goToMainPage.bind(this));
   }
 
   addCardEvents() {
@@ -48,6 +44,10 @@ export class MainPageController {
   generateSearchPageContent() {
     this.contentClass = this.appView.searchPage;
     this.addCardEvents();
+    this.appView.containerContent = this.contentClass.container;
+  }
+  goToMainPage() {
+    this.contentClass = this.appView.searchPage;
     this.appView.containerContent = this.contentClass.container;
   }
 }
