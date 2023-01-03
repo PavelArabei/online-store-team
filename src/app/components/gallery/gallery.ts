@@ -1,7 +1,6 @@
 import { GalleryHeader } from './galleryHeader/galleryHeader';
 import { GalleryItems } from './galleryItems/GalleryItems';
 
-//import { create } from '../../helpers/helpFunction';
 import { ProductInterface } from '../../interfaces/interfaces';
 export class Gallery {
   container: HTMLElement;

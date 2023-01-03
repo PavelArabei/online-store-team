@@ -31,7 +31,7 @@ export class HeaderView {
 
   set totalAmount(x: number) {
     this._totalAmount = x;
-    this.totalAmountHtml.innerText = this.totalAmount.toString();
+    this.totalAmountHtml.innerText = this._totalAmount.toString();
   }
 
   set basketScoreAmount(x: number) {

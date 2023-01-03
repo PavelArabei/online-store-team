@@ -1,7 +1,6 @@
 import { ProductInterface } from '../../interfaces/interfaces';
 import { Gallery } from '../../components/gallery/gallery';
 import { products } from '../../data/products';
-import { GalleryItems } from '../../components/gallery/galleryItems/GalleryItems';
 import { isHTMLElem } from '../../helpers/helpFunction';
 import { Filters } from '../../components/filters/filters';
 interface ObjectValue {
@@ -47,14 +46,7 @@ export class SearchModel {
 
   funcCreate(): void {
     const newProducts = this.productFilter(this.product);
-    this.gallery.galleryItems = new GalleryItems(newProducts);
-
-    const galeryContainer = this.gallery.galleryItemsCntainer;
-    galeryContainer.innerHTML = '';
-    this.gallery.galleryItems.cards.forEach((e) => {
-      galeryContainer.append(e.container);
-    });
-
+    this.gallery.galleryItems.changeGallery(newProducts);
     const searchResults = this.gallery.header.resultNum;
     searchResults.textContent = `${newProducts.length}`;
   }

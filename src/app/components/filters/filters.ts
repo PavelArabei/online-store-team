@@ -20,6 +20,7 @@ export class Filters {
     this.container.addEventListener('input', (e) => {
       if (isHTMLElem(e.target).tagName === 'INPUT') {
         this.mainObj.search = this.search.searchValue;
+        console.log(this.mainObj);
       }
     });
     this.container.append(this.search.container, this.filters.container);

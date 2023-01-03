@@ -1,16 +1,17 @@
 import { create } from '../../../helpers/helpFunction';
 import { ProductInterface } from '../../../interfaces/interfaces';
-//import { products } from '../../data/products';
 
 export class GalleryItems {
   container: HTMLElement;
   products: ProductInterface[];
   cards: Map<number, GalleryCard>;
+  cardsLinkArray: GalleryCard[];
   constructor(products: ProductInterface[]) {
     this.cards = new Map();
     this.container = document.createElement('div');
     this.container.classList.add('gallery');
     this.products = products;
+    this.cardsLinkArray = [];
     this.createGallery();
   }
   createGallery(): void {
@@ -19,12 +20,21 @@ export class GalleryItems {
       const card = new GalleryCard(this.products[i]);
       const productId = this.products[i].id;
       this.cards.set(productId, card);
+      this.cardsLinkArray.push(card);
+      this.container.append(card.container);
+    }
+  }
+  changeGallery(products: ProductInterface[]): void {
+    this.container.innerHTML = '';
+    for (let i = 0; i < products.length; i++) {
+      const card = this.cardsLinkArray[products[i].id - 1];
       this.container.append(card.container);
     }
   }
 }
 
 export class GalleryCard {
+  private _added = false;
   container: HTMLElement;
   data: ProductInterface;
   button: HTMLElement;
