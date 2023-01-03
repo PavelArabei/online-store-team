@@ -1,11 +1,11 @@
-import { ProductInterface } from '../../interfaces/interfaces';
+// import { ProductInterface } from '../../interfaces/interfaces';
 import { CartModel } from './model';
 
 export class CartController {
   model = new CartModel();
   cartItems = this.model.cartItems;
 
-  addItem(item: ProductInterface, amount: number): void {
+  addItem(item: number, amount: number): void {
     if (amount === 0 && this.cartItems.has(item)) {
       this.cartItems.delete(item);
     } else {

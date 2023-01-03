@@ -1,31 +1,22 @@
-import { ProductInterface } from '../../interfaces/interfaces';
+// import { ProductInterface } from '../../interfaces/interfaces';
+import { products } from '../../data/products';
 export class CartModel {
-  cartItems = new Map<ProductInterface, number>();
+  cartItems = new Map<number, number>();
   private _priceSum = 0;
   private _itemsAmountSum = 0;
 
   get priceSum(): number {
-    this._priceSum = 0;
-    if (this.cartItems.size > 0) {
-      for (const entry of this.cartItems.entries()) {
-        this._priceSum += entry[0].price * entry[1];
+    let sum = 0;
+    for (const val of this.cartItems) {
+      const obj = products.find((el) => el.id === val[0]);
+      if (obj !== undefined) {
+        sum = sum + obj.price;
       }
     }
-    return this._priceSum;
+    return sum;
   }
 
   get itemsAmount(): number {
-    this._itemsAmountSum = this.cartItems.size;
-    return this._itemsAmountSum;
-  }
-
-  getItemsAmount(): number {
-    this._itemsAmountSum = 0;
-    if (this.cartItems.size > 0) {
-      for (const value of this.cartItems.values()) {
-        this._itemsAmountSum += value;
-      }
-    }
-    return this._priceSum;
+    return this.cartItems.size;
   }
 }
