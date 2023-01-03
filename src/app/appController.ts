@@ -53,14 +53,12 @@ export class MainPageController {
           card.button.style.backgroundColor = '';
           card.button.innerText = 'Add to cart';
           this.cart.cartItems.delete(card.data.id);
-          console.log(this.cart.cartItems);
           this.refreshHeaderCart();
         } else {
           this.cart.cartItems.set(card.data.id, 1);
           card.button.style.backgroundColor = '#730600';
           card.button.innerText = 'Remove';
           this.cart.cartItems.set(card.data.id, 1);
-          console.log(this.cart.cartItems);
           this.refreshHeaderCart();
         }
       });

@@ -28,17 +28,14 @@ export class ItemPageController {
       this.view.addButton.style.backgroundColor = '#730600';
     }
     this.updateCardButton();
-    console.log(this.cart.cartItems);
   }
   updateCardButton() {
     if (this.cart.cartItems.has(this.data.id)) {
       this.card.button.style.backgroundColor = '#730600';
       this.card.button.innerText = 'Remove';
-      console.log('trig 1');
     } else {
       this.card.button.style.backgroundColor = '';
       this.card.button.innerText = 'Add to cart';
-      console.log('trig 1');
     }
   }
 }
