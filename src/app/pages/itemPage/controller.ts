@@ -16,6 +16,19 @@ export class ItemPageController {
     this.card = card;
     this.view.addButton.addEventListener('click', this.addToCartEvent.bind(this));
     this.view.buyNow.addEventListener('click', this.buyNowButtonEvent.bind(this));
+    this.view.mainImage.addEventListener('click', this.enlargeImageEvent.bind(this));
+    this.view.thumbnails.forEach((item) => {
+      item.addEventListener('click', () => {
+        const src = item.getAttribute('src');
+        if (src !== null) {
+          this.view.mainImage.setAttribute('src', src);
+        }
+      });
+    });
+
+    // this.view.mainImage.addEventListener('click', () => {
+    //   const src = this.view.mainImage.getAttribute('src');
+    // });
   }
 
   addToCartEvent() {
@@ -44,16 +57,61 @@ export class ItemPageController {
   buyNowButtonEvent() {
     const modal = new ModalWindow();
     document.body.append(modal.container);
-    modal.container.addEventListener('click', (e) => {
+    modal.container.addEventListener('mousedown', (e) => {
       if (e.target !== e.currentTarget) return;
-      modal.container.remove();
-      e.stopImmediatePropagation();
+      if (e.button === 0) {
+        modal.container.remove();
+        e.stopImmediatePropagation();
+      }
     });
 
-    modal.closeButton.addEventListener('click', (e) => {
+    modal.closeButton.addEventListener('mousedown', (e) => {
       if (e.target !== e.currentTarget) return;
-      modal.container.remove();
-      e.stopImmediatePropagation();
+      if (e.button === 0) {
+        modal.container.remove();
+        e.stopImmediatePropagation();
+      }
     });
+  }
+
+  enlargeImageEvent() {
+    const src = this.view.mainImage.getAttribute('src');
+    const modal = new EnlargeImagePopup(src || '');
+    document.body.append(modal.container);
+    modal.container.addEventListener('mousedown', (e) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.button === 0) {
+        modal.container.remove();
+        e.stopImmediatePropagation();
+      }
+    });
+    modal.cross.addEventListener('mousedown', (e) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.button === 0) {
+        modal.container.remove();
+        e.stopImmediatePropagation();
+      }
+    });
+  }
+}
+
+export class EnlargeImagePopup {
+  container: HTMLElement;
+  image: HTMLElement;
+  cross: HTMLElement;
+  constructor(src: string) {
+    this.container = document.createElement('div');
+    this.container.classList.add('modal');
+    this.image = document.createElement('img');
+    this.image.classList.add('image-popup__image');
+    this.image.setAttribute('src', src);
+    this.cross = document.createElement('img');
+    this.cross.classList.add('image-popup__cross');
+    this.cross.setAttribute('src', './assets/img/closeButton.png');
+    const whiteBg = document.createElement('div');
+    whiteBg.classList.add('image-popup__white-bg');
+    this.container.append(whiteBg);
+    whiteBg.prepend(this.cross);
+    whiteBg.append(this.image);
   }
 }
