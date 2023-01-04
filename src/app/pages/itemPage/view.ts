@@ -39,8 +39,8 @@ export class ItemPageView {
 
     this.thumbnails = this.item.images.map((item, index) => {
       const div = create('div', 'item-page__item-page-container', this.imagesPreviewContainer);
-      create('img', 'item-page__thumbnail', div, undefined, ['src', `${this.item.images[index]}`]);
-      return div;
+      const img = create('img', 'item-page__thumbnail', div, undefined, ['src', `${this.item.images[index]}`]);
+      return img;
     });
 
     this.rightBlock = create('div', 'item-page__right-block', this.container);
