@@ -20,7 +20,7 @@
     background-color: white;
     border-radius: 10px;
     padding: 20px 34px;
-    cursor:auto
+    cursor: auto;
   }
 
   &__close-button {
@@ -34,7 +34,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
   }
   &__title {
     font-size: 32px;
@@ -49,11 +49,17 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    gap: 13px;
+    gap: 5px;
   }
   &__input-title {
     font-size: 16px;
     color: #808080;
+  }
+  &__input-error {
+    color: red;
+    font-size: 14px;
+    display: block;
+    height: 10px;
   }
   &__input {
     border: 2px solid #dddddd;
@@ -68,7 +74,7 @@
     height: 22px;
     position: absolute;
     right: 7px;
-    top: 33px;
+    top: 25px;
   }
 
   &__input-tel {
@@ -78,15 +84,15 @@
   &__input-email {
     width: 306px;
   }
-  &__input-city {
-    width: 240px;
-  }
+  //&__input-city {
+  //  width: 240px;
+  //}
   &__input-address {
-    width: 240px;
+    width: 445px;
   }
-  &__input-apt {
-    width: 100px;
-  }
+  //&__input-apt {
+  //  width: 100px;
+  //}
   &__input-card {
     width: 270px;
   }
