@@ -2,6 +2,7 @@ import { ProductInterface } from '../../interfaces/interfaces';
 import { CartController } from '../../components/cart/controller';
 import { ItemPageView } from './view';
 import { GalleryCard } from '../../components/gallery/galleryItems/GalleryItems';
+import { ModalWindow } from '../../components/modal-window/modal-window';
 
 export class ItemPageController {
   data: ProductInterface;
@@ -14,6 +15,7 @@ export class ItemPageController {
     this.view = new ItemPageView(card.data);
     this.card = card;
     this.view.addButton.addEventListener('click', this.addToCartEvent.bind(this));
+    this.view.buyNow.addEventListener('click', this.buyNowButtonEvent.bind(this));
   }
 
   addToCartEvent() {
@@ -37,5 +39,21 @@ export class ItemPageController {
       this.card.button.style.backgroundColor = '';
       this.card.button.innerText = 'Add to cart';
     }
+  }
+
+  buyNowButtonEvent() {
+    const modal = new ModalWindow();
+    document.body.append(modal.container);
+    modal.container.addEventListener('click', (e) => {
+      if (e.target !== e.currentTarget) return;
+      modal.container.remove();
+      e.stopImmediatePropagation();
+    });
+
+    modal.closeButton.addEventListener('click', (e) => {
+      if (e.target !== e.currentTarget) return;
+      modal.container.remove();
+      e.stopImmediatePropagation();
+    });
   }
 }

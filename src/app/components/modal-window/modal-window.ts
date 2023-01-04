@@ -28,7 +28,7 @@ function cracteTextAndInput(body: HTMLElement, titleContent: string) {
 }
 
 export class ModalWindow {
-  body: HTMLElement;
+  container: HTMLElement;
   modalWindow: HTMLElement;
   closeButton: HTMLElement;
   inputName: HTMLInputElement;
@@ -41,9 +41,9 @@ export class ModalWindow {
   inputValid: HTMLInputElement;
   inputCVV: HTMLInputElement;
   constructor() {
-    this.body = document.body;
-    const darkBackground = create('div', 'modal', this.body);
-    this.modalWindow = create('div', 'modal__window', darkBackground);
+    this.container = document.createElement('div');
+    this.container.classList.add('modal');
+    this.modalWindow = create('div', 'modal__window', this.container);
     this.closeButton = create(
       'img',
       'modal__close-button',

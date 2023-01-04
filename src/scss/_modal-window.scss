@@ -6,24 +6,28 @@
   background-color: #0e1015b6;
   position: fixed;
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 
   &__window {
     transition: all 0.3s ease-out;
     position: relative;
     width: 696px;
     height: 589px;
-    margin: 0 auto;
     //top: -70%;
-    top: 15%;
     background-color: white;
     border-radius: 10px;
     padding: 20px 34px;
+    cursor:auto
   }
 
   &__close-button {
     position: absolute;
     top: 22px;
     right: 22px;
+    cursor: pointer;
   }
 
   &__group-container {
