@@ -16,18 +16,11 @@ export class Filters {
     this.filters = new FilterWithoutSearch();
     this.mainObj = this.filters.objectValue;
     this.mainObj.search = this.search.searchValue;
-
     this.container.addEventListener('input', (e) => {
       if (isHTMLElem(e.target).tagName === 'INPUT') {
         this.mainObj.search = this.search.searchValue;
-        console.log(this.mainObj);
       }
     });
     this.container.append(this.search.container, this.filters.container);
-    this.createAll();
-  }
-  createAll(): void {
-    const filterWithoutSearch = new FilterWithoutSearch();
-    filterWithoutSearch.createAll();
   }
 }

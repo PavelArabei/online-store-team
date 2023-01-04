@@ -7,6 +7,7 @@ export class SearchPageController {
   constructor() {
     this.app = new SearchPage();
     this.model = new SearchModel(this.app.mainObj, this.app.mainPage, this.app.gallery, this.app.filters);
+    this.model.funcCreate();
     this.app.container.addEventListener('input', this.model.funcCreate.bind(this.model));
     this.app.container.addEventListener('input', () => {
       this.app.gallery = this.model.gallery;

@@ -20,8 +20,8 @@ export class FilterWithoutSearch {
     this.container.classList.add('main-page_filter-conteiner');
     this.restAndCopy = new RestAndCopy(this.container);
 
-    this.subCategory = new SubCategory(this.container, [...new Set(products.map((el) => el.category))]);
-    this.subBrand = new SubCategory(this.container, [...new Set(products.map((el) => el.brand))]);
+    this.subCategory = new SubCategory(this.container, [...new Set(products.map((el) => el.category))], 'Category');
+    this.subBrand = new SubCategory(this.container, [...new Set(products.map((el) => el.brand))], 'Brand');
     this.rangePrice = new RangeCategory(this.container);
     this.rangeStock = new RangeCategory(this.container);
 

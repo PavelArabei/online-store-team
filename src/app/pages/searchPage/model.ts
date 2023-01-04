@@ -45,6 +45,7 @@ export class SearchModel {
   }
 
   funcCreate(): void {
+    localStorage.setItem('mainObj', JSON.stringify(this.mainObj));
     const newProducts = this.productFilter(this.product);
     this.gallery.galleryItems.changeGallery(newProducts);
     const searchResults = this.gallery.header.resultNum;
@@ -53,7 +54,6 @@ export class SearchModel {
 
   productFilter(products: ProductInterface[]): ProductInterface[] {
     let newProducts = JSON.parse(JSON.stringify(products));
-
     if (this.mainObj.brand.length > 0) {
       newProducts = newProducts.filter(
         (e: ProductInterface) => e.brand === this.mainObj.brand[this.mainObj.brand.indexOf(e.brand)]
