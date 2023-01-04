@@ -85,6 +85,13 @@ export class ItemPageController {
         e.stopImmediatePropagation();
       }
     });
+    modal.cross.addEventListener('mousedown', (e) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.button === 0) {
+        modal.container.remove();
+        e.stopImmediatePropagation();
+      }
+    });
   }
 }
 
