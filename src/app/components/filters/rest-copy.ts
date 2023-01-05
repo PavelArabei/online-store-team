@@ -1,16 +1,17 @@
 import { create } from '../../helpers/helpFunction';
 export class RestAndCopy {
   body: HTMLElement;
+  restAndCopyBody: HTMLElement;
+  resetButton: HTMLElement;
+  copyButton: HTMLElement;
   constructor(body: HTMLElement) {
     this.body = body;
-  }
-  createAll(): void {
-    const restAndCopyBody = create('div', 'reset-copy', this.body);
-    const title = create('h2', 'reset-copy__title', restAndCopyBody, 'Product Filters');
+    this.restAndCopyBody = create('div', 'reset-copy', this.body);
+    const title = create('h2', 'reset-copy__title', this.restAndCopyBody, 'Product Filters');
     title.classList.add('subtitle');
-    const resetButton = create('button', 'reset-copy__reset', restAndCopyBody, 'Reset');
-    resetButton.classList.add('button');
-    const copyButton = create('button', 'reset-copy__copy', restAndCopyBody, 'Copy Link');
-    copyButton.classList.add('button');
+    this.resetButton = create('button', 'reset-copy__reset', this.restAndCopyBody, 'Reset');
+    this.copyButton = create('button', 'reset-copy__copy', this.restAndCopyBody, 'Copy Link');
+    this.resetButton.classList.add('button');
+    this.copyButton.classList.add('button');
   }
 }

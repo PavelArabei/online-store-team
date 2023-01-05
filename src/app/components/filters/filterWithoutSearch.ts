@@ -23,6 +23,7 @@ export class FilterWithoutSearch {
     this.subCategory = new SubCategory(this.container, [...new Set(products.map((el) => el.category))], 'Category');
     this.subBrand = new SubCategory(this.container, [...new Set(products.map((el) => el.brand))], 'Brand');
     this.rangePrice = new RangeCategory(this.container);
+
     this.rangeStock = new RangeCategory(this.container);
 
     this.objectValue = {
@@ -31,14 +32,22 @@ export class FilterWithoutSearch {
       rangePrice: this.rangePrice.inputValueArr,
       rangeStock: this.rangeStock.inputValueArr,
     };
-
+    if (localStorage.getItem('mainObj')) {
+      const mainObj = JSON.parse(localStorage.getItem('mainObj') as string);
+      const prise = mainObj.rangePrice;
+      this.rangePrice.inputValueArr[0] = prise[0];
+      this.rangePrice.inputValueArr[1] = prise[1];
+      const stock = mainObj.rangeStock;
+      this.rangeStock.inputValueArr[0] = stock[0];
+      this.rangeStock.inputValueArr[1] = stock[1];
+    }
     this.createAll();
   }
   createAll(): void {
-    this.restAndCopy.createAll();
     this.subCategory.createAll();
     this.subBrand.createAll();
+
     this.rangePrice.createRangeAndInput(5041, 0, 5041, 150, 'Price range');
-    this.rangeStock.createRangeAndInput(5041, 0, 5041, 150, 'Stock');
+    this.rangeStock.createRangeAndInput(50, 0, 50, 3, 'Stock');
   }
 }
