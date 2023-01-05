@@ -51,7 +51,6 @@ export class InputRangeAndNumb implements InputRangeAndNumbInterface {
   }
   numbToRange(): void {
     this.rangeInput.forEach((input) => {
-      //console.log(input);
       input.addEventListener('input', (e) => {
         const minVal: number = parseInt(this.inputRangeLeft.value),
           maxVal: number = parseInt(this.inputRangeRight.value);
@@ -73,7 +72,7 @@ export class InputRangeAndNumb implements InputRangeAndNumbInterface {
   }
   rangeToNumb(): void {
     this.numInput.forEach((input) => {
-      input.addEventListener('input', (e) => {
+      input.addEventListener('change', (e) => {
         const minVal: number = parseInt(this.priceInputLeft.value),
           maxVal: number = parseInt(this.priceInputRight.value);
 

@@ -4,21 +4,21 @@ export class SubCategory {
   arr: string[];
   str: string;
   _inputCategoryArr: string[];
+  inputsArr: HTMLInputElement[];
   constructor(body: HTMLElement, arr: string[], str: string) {
     this.body = body;
     this.arr = arr;
     this.str = str;
     this._inputCategoryArr = [];
+    this.inputsArr = [];
     this.isLocalStorageTrue();
   }
   isLocalStorageTrue() {
     if (localStorage.getItem(`mainObj`)) {
       if (this.str === 'Category') {
-        // console.log(JSON.parse(localStorage.getItem(`mainObj`) as string).category);
         this._inputCategoryArr = JSON.parse(localStorage.getItem(`mainObj`) as string).category;
       }
       if (this.str === 'Brand') {
-        // console.log(JSON.parse(localStorage.getItem(`mainObj`) as string).brand);
         this._inputCategoryArr = JSON.parse(localStorage.getItem(`mainObj`) as string).brand;
       }
     }
@@ -37,7 +37,7 @@ export class SubCategory {
         undefined,
         ['type', 'checkbox'],
         ['id', `${this.arr[i]}`]
-      );
+      ) as HTMLInputElement;
       //console.log(this._inputCategoryArr);
 
       if (this._inputCategoryArr.indexOf(this.arr[i]) >= 0) {
@@ -51,7 +51,7 @@ export class SubCategory {
           this._inputCategoryArr.push(this.arr[i]);
         }
       });
-
+      this.inputsArr.push(inputItem);
       create('label', 'cub-category__label', inputBody, `${this.arr[i]}`, ['for', `${this.arr[i]}`]);
     }
   }

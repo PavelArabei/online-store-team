@@ -3,6 +3,7 @@ import { InputRangeAndNumb } from './range';
 export class RangeCategory {
   body: HTMLElement;
   inputFunc: InputRangeAndNumb;
+
   inputValueArr: string[];
   constructor(body: HTMLElement) {
     this.body = body;
@@ -22,7 +23,7 @@ export class RangeCategory {
       undefined,
       ['min', '0'],
       ['max', `${valueMax}`],
-      ['value', `${0}`],
+      ['value', `${valueStart}`],
       ['type', 'range']
     );
     const inputRangeMax = create(
@@ -32,7 +33,7 @@ export class RangeCategory {
       undefined,
       ['min', '0'],
       ['max', `${valueMax}`],
-      ['value', `${valueMax}`],
+      ['value', `${ValueEnd}`],
       ['type', 'range']
     );
     const slider = create('div', 'sub-range-category__slider-range', rangeCategory);
@@ -45,7 +46,7 @@ export class RangeCategory {
       'sub-range-category__input-number',
       inputNumbContainer,
       undefined,
-      ['value', `0`],
+      ['value', `${valueStart}`],
       ['type', 'number']
     );
     inputNumLow.classList.add('input-min');

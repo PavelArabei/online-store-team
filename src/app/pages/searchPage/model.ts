@@ -24,27 +24,84 @@ export class SearchModel {
     this.product = products;
     this.filters = filters;
   }
+  resetFunction() {
+    console.log(this.mainObj);
+    (this.mainObj.brand as Array<string>).splice(0);
+    (this.mainObj.category as Array<string>).splice(0);
 
-  funcSort(e: Event): void {
-    const targetText = isHTMLElem(e.target);
-    if (targetText.textContent === 'no-Sort') {
-      this.product.sort((a: ProductInterface, b: ProductInterface) => a.id - b.id);
-    } else if (targetText.textContent === 'price') {
-      this.product.sort((a: ProductInterface, b: ProductInterface) => a.price - b.price);
-    } else if (targetText.textContent === 'rating') {
-      this.product.sort((a: ProductInterface, b: ProductInterface) => a.rating - b.rating);
+    const inputCategoryArr = this.filters.filters.subCategory.inputsArr;
+    const inputBrandArr = this.filters.filters.subBrand.inputsArr;
+    const allInputsCheck = inputCategoryArr.concat(inputBrandArr);
+    for (let i = 0; i < allInputsCheck.length; i++) {
+      allInputsCheck[i].checked = false;
     }
 
+    (this.mainObj.rangePrice as Array<string>)[0] = '0';
+    (this.mainObj.rangePrice as Array<string>)[1] = '5041';
+    (this.mainObj.rangeStock as Array<string>)[1] = '0';
+    (this.mainObj.rangeStock as Array<string>)[1] = '50';
+    this.filters.search.container.value = '';
+    const buttonSort = this.gallery.header.sortButtonArr[0];
+    const mainButtonSort = this.gallery.header.sortButtonText;
+    mainButtonSort.textContent = 'no-Sort';
+
+    this.sortWithoutRender(buttonSort);
+    const buttonSortDirection = this.gallery.header.sortDirection;
+    localStorage.removeItem('sort');
+    buttonSortDirection.classList.remove('mirror');
+    localStorage.removeItem('bigItems');
+    this.gallery.galleryItemsCntainer.style.gridTemplateColumns = '1fr 1fr 1fr';
     this.funcCreate();
+
+    //
   }
 
-  funcSortDirection(e: Event): void {
-    console.log(isHTMLElem(e.target).classList.toggle('mirror'));
-    this.product.reverse();
+  funcSort(button: HTMLElement): void {
+    this.sortWithoutRender(button);
     this.funcCreate();
+  }
+  sortWithoutRender(button: HTMLElement) {
+    if (button.textContent === 'no-Sort') {
+      localStorage.setItem('sortButton', 'no-Sort');
+      this.product.sort((a: ProductInterface, b: ProductInterface) => a.id - b.id);
+    } else if (button.textContent === 'price') {
+      localStorage.setItem('sortButton', 'price');
+      this.product.sort((a: ProductInterface, b: ProductInterface) => a.price - b.price);
+    } else if (button.textContent === 'rating') {
+      localStorage.setItem('sortButton', 'rating');
+      this.product.sort((a: ProductInterface, b: ProductInterface) => a.rating - b.rating);
+    }
+  }
+
+  funcSortDirection(img: HTMLElement): void {
+    this.sortDirectionsortWithoutRender(img);
+    this.funcCreate();
+  }
+  sortDirectionsortWithoutRender(img: HTMLElement) {
+    localStorage.setItem('sort', 'on');
+    const isOn = img.className;
+    if (isOn !== `main-page__sort-direction`) {
+      localStorage.removeItem('sort');
+    }
+    img.classList.toggle('mirror');
+    this.product.reverse();
+  }
+  changeGrid(img: HTMLElement) {
+    const type = img.getAttribute('configuration');
+    if (type === 'small') {
+      this.gallery.galleryItemsCntainer.style.gridTemplateColumns = '1fr 1fr 1fr';
+      localStorage.removeItem('bigItems');
+    } else if (type === 'big') {
+      this.gallery.galleryItemsCntainer.style.gridTemplateColumns = '1fr 1fr';
+      localStorage.setItem('bigItems', 'on');
+    }
   }
 
   funcCreate(): void {
+    if (localStorage.getItem('bigItems')) {
+      this.gallery.galleryItemsCntainer.style.gridTemplateColumns = '1fr 1fr';
+    }
+
     localStorage.setItem('mainObj', JSON.stringify(this.mainObj));
     const newProducts = this.productFilter(this.product);
     this.gallery.galleryItems.changeGallery(newProducts);
@@ -79,41 +136,123 @@ export class SearchModel {
     if (this.mainObj.search.length > 0) {
       newProducts = newProducts.filter((e: ProductInterface) => {
         return (
-          e.description.includes(search) ||
-          e.title.includes(search) ||
-          e.brand.includes(search) ||
-          e.category.includes(search) ||
-          String(e.rating).includes(search) ||
-          String(e.stock).includes(search)
+          e.description.toLowerCase().includes(search.toLowerCase()) ||
+          e.title.toLowerCase().includes(search.toLowerCase()) ||
+          e.brand.toLowerCase().includes(search.toLowerCase()) ||
+          e.category.toLowerCase().includes(search.toLowerCase()) ||
+          String(e.rating).toLowerCase().includes(search.toLowerCase()) ||
+          String(e.stock).toLowerCase().includes(search.toLowerCase())
         );
       });
     }
 
     const minMaxPrice: number[] = [];
     const minMaxStock: number[] = [];
+    //const minMaxPriceAllProducts: number[] = [];
+    //const minMaxStockAllProducts: number[] = [];
     for (let i = 0; i < newProducts.length; i++) {
       minMaxPrice.push(newProducts[i].price);
       minMaxStock.push(newProducts[i].stock);
+      //minMaxPriceAllProducts.push(products[i].price);
+      // minMaxStockAllProducts.push(products[i].stock);
     }
-    //const imputMinValue = this.filters.filters.rangePrice.inputValueArr;
-    //console.log(imputMinValue);
-    //console.log(String(Math.min(...minMaxPrice)));
 
-    //const imputNumMin = this.filters.filters.rangePrice.inputFunc.numInput[0] as HTMLInputElement;
-    //const imputNumMax = this.filters.filters.rangePrice.inputFunc.numInput[1] as HTMLInputElement;
-    //const imputRangeLeft = this.filters.filters.rangePrice.inputFunc.inputRangeLeft as HTMLInputElement;
-    //const imputRangeRight = this.filters.filters.rangePrice.inputFunc.inputRangeRight as HTMLInputElement;
-    //console.log(imputRangeLeft, imputRangeRight);
-    //imputRangeLeft.value = String(Math.min(...minMaxPrice));
-    //imputRangeRight.value = String(Math.max(...minMaxPrice));
-    //imputNumMin.value = String(Math.min(...minMaxPrice));
-    //imputNumMax.value = String(Math.max(...minMaxPrice));
-    //this.filters.filters.rangePrice.inputFunc.rangeToNumb();
-    //const price = [String(Math.min(...minMaxPrice)), String(Math.max(...minMaxPrice))];
-    //const stock = [String(Math.min(...minMaxStock)), String(Math.max(...minMaxStock))];
-    ////this.mainObj.rangePrice = price;
-    //console.log(this.mainObj.rangePrice);
+    const inputFuncPrice = this.filters.filters.rangePrice.inputFunc;
+    const inputRangeLeft = inputFuncPrice.inputRangeLeft;
+    const inputRangeRight = inputFuncPrice.inputRangeRight;
+    const inputNumLeft = inputFuncPrice.priceInputLeft;
+    const inputNumRight = inputFuncPrice.priceInputRight;
+    const progress = inputFuncPrice.progress;
+    const gap = 150;
+    const inputFuncStoke = this.filters.filters.rangeStock.inputFunc;
+    const inputRangeLeftTwo = inputFuncStoke.inputRangeLeft;
+    const inputRangeRightTwo = inputFuncStoke.inputRangeRight;
+    const inputNumLeftTwo = inputFuncStoke.priceInputLeft;
+    const inputNumRightTwo = inputFuncStoke.priceInputRight;
+    const progressTwo = inputFuncStoke.progress;
+    const gapTwo = 3;
+
+    let PriceMin = Math.min(...minMaxPrice);
+    let PriceMax = Math.max(...minMaxPrice);
+    if (newProducts.length > 20) {
+      PriceMin = 0;
+      PriceMax = 5041;
+    }
+    let StockMin = Math.min(...minMaxStock);
+    let StockMax = Math.max(...minMaxStock);
+    if (newProducts.length > 20) {
+      StockMin = 0;
+      StockMax = 50;
+    }
+
+    function disabledInputCategory(arr: HTMLInputElement[], category: string) {
+      arr.forEach((input) => {
+        const resArr: ProductInterface[] = [];
+        newProducts.forEach((el: ProductInterface) => {
+          if (category === 'category') {
+            if (el.category === input.id) resArr.push(el);
+          }
+          if (category === 'brand') {
+            if (el.brand === input.id) resArr.push(el);
+          }
+        });
+        const inputLabel = isHTMLElem(input.nextSibling);
+        if (resArr.length === 0) {
+          input.style.opacity = '0.4';
+          inputLabel.style.opacity = '0.4';
+        } else {
+          input.style.opacity = '1';
+          inputLabel.style.opacity = '1';
+        }
+      });
+    }
+    const inputCategoryArr = this.filters.filters.subCategory.inputsArr;
+    const inputBrandArr = this.filters.filters.subBrand.inputsArr;
+    disabledInputCategory(inputCategoryArr, 'category');
+    disabledInputCategory(inputBrandArr, 'brand');
+
+    if (PriceMin !== Infinity && PriceMin !== Infinity) {
+      this.inputRangetoNumb(
+        PriceMin,
+        PriceMax,
+        inputRangeLeft,
+        inputRangeRight,
+        inputNumLeft,
+        inputNumRight,
+        progress,
+        gap
+      );
+      this.inputRangetoNumb(
+        StockMin,
+        StockMax,
+        inputRangeLeftTwo,
+        inputRangeRightTwo,
+        inputNumLeftTwo,
+        inputNumRightTwo,
+        progressTwo,
+        gapTwo
+      );
+    }
 
     return newProducts;
+  }
+
+  inputRangetoNumb(
+    minVal: number,
+    maxVal: number,
+    inputRangeLeft: HTMLInputElement,
+    inputRangeRight: HTMLInputElement,
+    priceInputLeft: HTMLInputElement,
+    priceInputRight: HTMLInputElement,
+    progress: HTMLElement,
+    priceGap: number
+  ) {
+    inputRangeLeft.value = `${minVal}`;
+    inputRangeRight.value = `${maxVal}`;
+    priceInputLeft.value = `${minVal}`;
+    priceInputRight.value = `${maxVal}`;
+    progress.style.left = (minVal / parseInt(inputRangeLeft.max)) * 100 + '%';
+    progress.style.right = 100 - ((maxVal - priceGap / 4) / parseInt(inputRangeRight.max)) * 100 + '%';
+    //}
   }
 }

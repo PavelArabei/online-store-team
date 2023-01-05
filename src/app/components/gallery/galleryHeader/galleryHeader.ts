@@ -26,15 +26,17 @@ export class GalleryHeader {
       configuration,
       undefined,
       ['src', './assets/img/smallConfiguration.png'],
-      ['alt', 'small configuration']
+      ['alt', 'small configuration'],
+      ['configuration', 'small']
     );
     this.bigConfiguration = create(
       'img',
       'main-page__big-configuration',
       configuration,
       undefined,
-      ['src', './assets/img/bigConfiguration.png'],
-      ['alt', 'big configuration']
+      ['src', './assets/img/bigConfiguration.svg'],
+      ['alt', 'big configuration'],
+      ['configuration', 'big']
     );
 
     const sort = create('div', 'main-page__sort', allSort);
@@ -59,6 +61,7 @@ export class GalleryHeader {
       ['src', './assets/img/direction.png'],
       ['alt', 'direction']
     );
+
     this.noSort = create('p', 'main-page__sort-item', this.sortButton, 'no-Sort');
     this.sortPrice = create('p', 'main-page__sort-item', this.sortButton, 'price');
     this.sortRating = create('p', 'main-page__sort-item', this.sortButton, 'rating');
