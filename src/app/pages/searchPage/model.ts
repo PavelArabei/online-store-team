@@ -86,14 +86,17 @@ export class SearchModel {
     img.classList.toggle('mirror');
     this.product.reverse();
   }
-  changeGrid(img: HTMLElement) {
+  changeGrid(img: HTMLElement, img2: HTMLElement) {
     const type = img.getAttribute('configuration');
+    img.style.filter = 'invert(42%) sepia(77%) saturate(1822%) hue-rotate(352deg) brightness(102%) contrast(108%)';
+    img2.style.filter = 'none';
     if (type === 'small') {
       this.gallery.galleryItemsCntainer.style.gridTemplateColumns = '1fr 1fr 1fr';
       localStorage.removeItem('bigItems');
     } else if (type === 'big') {
       this.gallery.galleryItemsCntainer.style.gridTemplateColumns = '1fr 1fr';
       localStorage.setItem('bigItems', 'on');
+      //img.style.filter = 'invert(42%) sepia(77%) saturate(1822%) hue-rotate(352deg) brightness(102%) contrast(108%)';
     }
   }
 

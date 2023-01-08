@@ -10,12 +10,15 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow-y: scroll;
 
   &__window {
     transition: all 0.3s ease-out;
-    position: relative;
+    position: absolute;
+    z-index: 4;
+    top: 40px;
     width: 696px;
-    height: 589px;
+    height: auto;
     //top: -70%;
     background-color: white;
     border-radius: 10px;
@@ -133,4 +136,50 @@
 
 .popUpActive {
   top: 15%;
+}
+
+@media (max-width: 1300px) {
+}
+@media (max-width: 850px) {
+  .modal {
+    &__window {
+      width: 450px;
+    }
+    &__group-container {
+      gap: 16px;
+      margin-bottom: 5px;
+    }
+    &__title {
+      font-size: 26px;
+    }
+    &__input-container {
+      gap: 5px;
+    }
+    &__input-img {
+      right: 14px;
+    }
+    &__input-name,
+    &__input-email,
+    &__input-tel,
+    &__input-card {
+      width: 250px;
+      margin-right: 10px;
+    }
+    &__input-address {
+      width: 350px;
+    }
+    &__button {
+      margin-top: 15px;
+    }
+  }
+}
+@media (max-width: 520px) {
+  .modal {
+    &__window {
+      width: 300px;
+    }
+    &__input-address {
+      width: 250px;
+    }
+  }
 }
