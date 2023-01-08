@@ -33,8 +33,8 @@ export class SearchPageController {
 
     const manyItemsGrid = this.app.gallery.header.smallConfiguration;
     const fewItemsGrid = this.app.gallery.header.bigConfiguration;
-    manyItemsGrid.addEventListener('click', this.model.changeGrid.bind(this.model, manyItemsGrid));
-    fewItemsGrid.addEventListener('click', this.model.changeGrid.bind(this.model, fewItemsGrid));
+    manyItemsGrid.addEventListener('click', this.model.changeGrid.bind(this.model, manyItemsGrid, fewItemsGrid));
+    fewItemsGrid.addEventListener('click', this.model.changeGrid.bind(this.model, fewItemsGrid, manyItemsGrid));
 
     this.model.funcCreate();
   }
