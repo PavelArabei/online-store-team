@@ -22,8 +22,11 @@ export class MainPageController {
       this.cart.updateSummary();
     });
     this.openItemPageFromCartEvent();
+    //this.openErrorPage();
   }
-
+  openErrorPage() {
+    this.appView.containerContent = this.appView.errorPage.container;
+  }
   addCardEvents() {
     this.appView.searchPage.gallery.galleryItems.cards.forEach((card) => {
       card.container.addEventListener('click', () => {
