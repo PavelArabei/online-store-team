@@ -1,0 +1,20 @@
+<svg width="20.000000000000004" height="20.000000000000004" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="3.249999" height="3.249999" id="canvas_background" fill="none"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse fill="none" stroke-width="1.3" cx="16.499992" cy="16.499991" id="svg_20" rx="2.5" ry="2.5" transform="rotate(-1 16.499992370605582,16.49999046325671) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="3.500008" cy="16.499991" id="svg_21" rx="2.5" ry="2.5" transform="rotate(-1 3.5000081062320687,16.499990463256843) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="10" cy="16.499992" id="svg_22" rx="2.5" ry="2.5" transform="rotate(-1 10,16.49999237060541) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="10.030634" cy="3.400154" id="svg_23" rx="2.5" ry="2.5" transform="rotate(-1 10.03063392639165,3.4001541137695503) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="3.530642" cy="3.400154" id="svg_24" rx="2.5" ry="2.5" transform="rotate(-1 3.530642032623353,3.400154113769541) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="16.530625" cy="3.400154" id="svg_25" rx="2.5" ry="2.5" transform="rotate(-1 16.5306243896484,3.4001541137695024) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="3.530642" cy="9.900146" id="svg_26" rx="2.5" ry="2.5" transform="rotate(-1 3.530642032623308,9.900145530700705) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="16.530626" cy="9.900146" id="svg_27" rx="2.5" ry="2.5" transform="rotate(-1 16.530626296997188,9.900145530700625) " stroke="#333333"/>
+  <ellipse fill="none" stroke-width="1.3" cx="10.030633" cy="9.900146" id="svg_28" rx="2.5" ry="2.5" transform="rotate(-1 10.030632972717392,9.90014553070066) " stroke="#333333"/>
+ </g>
+</svg>

@@ -23,6 +23,22 @@ body {
   background-color: #fafafa;
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+@media (max-width: 1300px) {
+  .container {
+    width: 830px;
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    max-width: 500px;
+  }
+}
+@media (max-width: 520px) {
+  .container {
+    max-width: 300px;
+  }
 }
 
 #promo-label {

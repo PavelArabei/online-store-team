@@ -15,6 +15,7 @@ export class GalleryHeader {
   sortDirection: HTMLElement;
   resultNum: HTMLElement;
   sortButtonArr: HTMLElement[];
+  burger: HTMLElement;
   constructor() {
     this.container = document.createElement('div');
     this.container.classList.add('main-page__header');
@@ -25,7 +26,7 @@ export class GalleryHeader {
       'main-page__small-configuration',
       configuration,
       undefined,
-      ['src', './assets/img/smallConfiguration.png'],
+      ['src', './assets/img/manyConfig.svg'],
       ['alt', 'small configuration'],
       ['configuration', 'small']
     );
@@ -34,11 +35,18 @@ export class GalleryHeader {
       'main-page__big-configuration',
       configuration,
       undefined,
-      ['src', './assets/img/bigConfiguration.svg'],
+      ['src', './assets/img/smallConfig.svg'],
       ['alt', 'big configuration'],
       ['configuration', 'big']
     );
-
+    this.burger = create(
+      'img',
+      'main-page__burger',
+      allSort,
+      undefined,
+      ['src', './assets/img/burger.svg'],
+      ['alt', 'burger']
+    );
     const sort = create('div', 'main-page__sort', allSort);
     create('div', 'main-page__sort-tittle', sort, 'Sort:');
     this.sortButton = create('div', 'main-page__sort-selector', sort);

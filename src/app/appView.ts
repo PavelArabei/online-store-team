@@ -1,7 +1,7 @@
 import { HeaderView } from './components/header/view';
 import { SearchPage } from './pages/searchPage/view';
 import { SearchPageController } from './pages/searchPage/controller';
-//!import { ModalWindow } from './components/modal-window/modal-window';
+import { create } from './helpers/helpFunction';
 
 export class AppView {
   header: HeaderView;
@@ -9,7 +9,6 @@ export class AppView {
   documentBody: HTMLElement;
   container: HTMLElement;
   searchPageController: SearchPageController;
-  //!modalWindow: ModalWindow;
   constructor() {
     this.searchPageController = new SearchPageController();
     this.searchPage = this.searchPageController.app;
@@ -18,10 +17,24 @@ export class AppView {
     this.documentBody = document.body;
     this.header = new HeaderView();
     this.documentBody.append(this.header.container, this.container);
-    //!this.modalWindow = new ModalWindow();
+    this.openBurgerMenu();
   }
 
   set containerContent(x: HTMLElement) {
     this.container.replaceChildren(x);
+  }
+  openBurgerMenu() {
+    const burger = this.searchPage.gallery.header.burger;
+    const body = document.body;
+    const filters = this.searchPage.filters.container;
+    burger.addEventListener('click', () => {
+      filters.style.left = '20px';
+      const background = create('div', 'background', body);
+
+      background.addEventListener('click', () => {
+        body.removeChild(background);
+        filters.style.left = '-400px';
+      });
+    });
   }
 }
