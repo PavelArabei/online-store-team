@@ -107,7 +107,16 @@ export class SearchModel {
 
     localStorage.setItem('mainObj', JSON.stringify(this.mainObj));
     const newProducts = this.productFilter(this.product);
+
     this.gallery.galleryItems.changeGallery(newProducts);
+    if (newProducts.length === 0) {
+      console.log(this.gallery.galleryItemsCntainer);
+      this.gallery.galleryItemsCntainer.textContent = 'No results';
+      this.gallery.galleryItemsCntainer.classList.add('big-text');
+    } else {
+      this.gallery.galleryItemsCntainer.classList.remove('big-text');
+    }
+    console.log(this.gallery.galleryItemsCntainer);
     const searchResults = this.gallery.header.resultNum;
     searchResults.textContent = `${newProducts.length}`;
   }
