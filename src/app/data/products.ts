@@ -19,9 +19,9 @@ export const products = [
   },
   {
     id: 2,
-    title: 'Ibanez j.custom JCRG2104 #I21305 B-Stock',
+    title: 'Ibanez j.custom JCRG2104',
     description:
-      'The Ibanez j.custom JCRG2104 #I21305 B-stock has a fall damage, which was professionally repaired in the MUSIC STORE guitar workshop. In addition to carefully touching up paint damage to the body and headstock (see pictures), the guitar was carefully and thoroughly inspected for unrestricted function.',
+      'The Ibanez j.custom JCRG2104 #I21305 B-stock has a fall damage, which was professionally repaired in the MUSIC STORE guitar workshop. The guitar was carefully and thoroughly inspected for unrestricted function.',
     price: 5041,
     discountPercentage: 0,
     rating: 5,

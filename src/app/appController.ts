@@ -2,16 +2,26 @@ import { SearchPage } from './pages/searchPage/view';
 import { AppView } from './appView';
 import { CartController } from './components/cart/controller';
 import { ItemPageController } from './pages/itemPage/controller';
+import { CartView } from './components/cart/view';
 
 export class MainPageController {
   appView: AppView;
-  cart: CartController = new CartController();
-  contentClass: SearchPage | ItemPageController;
+  cart: CartController;
+  contentClass: SearchPage | ItemPageController | CartView;
   constructor() {
     this.appView = new AppView();
+    this.cart = new CartController(this.appView.header);
     this.contentClass = this.appView.searchPage;
     this.generateSearchPageContent();
     this.appView.header.logoLink.addEventListener('click', this.goToMainPage.bind(this));
+    this.appView.header.basket.addEventListener('click', () => {
+      this.contentClass = this.cart.view;
+      this.appView.containerContent = this.cart.view.container;
+      this.cart.resetPagination();
+      this.cart.renderCartItems();
+      this.cart.updateSummary();
+    });
+    this.openItemPageFromCartEvent();
   }
 
   addCardEvents() {
@@ -47,6 +57,35 @@ export class MainPageController {
     });
   }
 
+  openItemPageFromCartEvent() {
+    this.cart.view.itemsList.addEventListener('click', (e) => {
+      // if (e.target instanceof HTMLElement && Boolean(e.target.dataset.id)) console.log(e.target.dataset.id);
+      if (e.target instanceof HTMLElement && Boolean(e.target.dataset.id)) {
+        const card = this.appView.searchPage.gallery.galleryItems.cards.get(Number(e.target.dataset.id));
+        if (card !== undefined) {
+          this.contentClass = new ItemPageController(this.cart, card);
+          this.contentClass.cart = this.cart;
+          this.appView.containerContent = this.contentClass.view.container;
+          if (this.cart.cartItems.has(card.data.id)) {
+            this.contentClass.view.addButton.innerText = 'Remove';
+            this.contentClass.view.addButton.style.backgroundColor = '#730600';
+          }
+
+          this.contentClass.view.addButton.addEventListener('click', this.refreshHeaderCart.bind(this));
+        }
+      }
+    });
+  }
+
+  updateCardsButtonState() {
+    this.appView.searchPage.gallery.galleryItems.cards.forEach((card) => {
+      if (!this.cart.cartItems.has(card.data.id)) {
+        card.button.style.backgroundColor = '';
+        card.button.innerText = 'Add to cart';
+      }
+    });
+  }
+
   generateSearchPageContent() {
     this.contentClass = this.appView.searchPage;
     this.addCardEvents();
@@ -55,6 +94,7 @@ export class MainPageController {
   goToMainPage() {
     this.contentClass = this.appView.searchPage;
     this.appView.containerContent = this.contentClass.container;
+    this.updateCardsButtonState();
   }
 
   refreshHeaderCart() {

@@ -7,6 +7,7 @@ export class HeaderView {
   logoLink: HTMLElement;
   basketScoreHml: HTMLElement;
   _basketScoreAmount: number;
+  basket: HTMLElement;
   constructor() {
     this.container = document.createElement('header');
     this.container.classList.add('header');
@@ -22,9 +23,9 @@ export class HeaderView {
     const total = create('p', 'header__total', item2, 'Total: $');
     this.totalAmountHtml = create('span', 'header__total-amount', total, '0');
     this._totalAmount = 0;
-    const basket = create('a', 'header__basket', item2);
-    create('img', 'as', basket, undefined, ['src', './assets/img/basket.png'], ['alt', 'shopping basket']);
-    this.basketScoreHml = create('div', 'basket-score', basket);
+    this.basket = create('a', 'header__basket', item2);
+    create('img', 'as', this.basket, undefined, ['src', './assets/img/basket.png'], ['alt', 'shopping basket']);
+    this.basketScoreHml = create('div', 'basket-score', this.basket);
     this._basketScoreAmount = 0;
     this.basketScoreHml.innerText = this._basketScoreAmount.toString();
   }
