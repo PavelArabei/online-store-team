@@ -8,6 +8,7 @@
 @import 'scss/_gallery.scss';
 @import 'scss/modal-window';
 @import 'scss/_imagePopup.scss';
+@import 'scss/_cart.scss';
 
 body {
   font-family: 'Didact Gothic', sans-serif;
@@ -38,4 +39,8 @@ body {
   .container {
     max-width: 300px;
   }
+}
+
+#promo-label {
+  font-size: 20px;
 }
