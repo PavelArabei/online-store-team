@@ -106,6 +106,7 @@ export class ModalWindow {
     } else {
       this.flag = false;
     }
+    return this.flag;
   }
 
   isValidName() {

@@ -28,7 +28,12 @@ export class ItemPageView {
     this.item = item;
     this.container = document.createElement('div');
     this.container.classList.add('item-page');
-
+    const hleb = document.createElement('span');
+    hleb.innerText = `items / ${item.category} / ${item.brand}`;
+    this.container.append(hleb);
+    this.container.style.position = 'relative';
+    hleb.style.position = 'absolute';
+    hleb.style.top = '10px';
     this.itemImages = create('div', 'item-page__item-images', this.container);
     this.mainImageContainer = create('div', 'item-page__main-image-container', this.itemImages);
     this.mainImage = create('img', 'item-page__main-image', this.mainImageContainer, undefined, [

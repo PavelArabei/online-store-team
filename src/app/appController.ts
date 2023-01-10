@@ -22,11 +22,8 @@ export class MainPageController {
       this.cart.updateSummary();
     });
     this.openItemPageFromCartEvent();
-    //this.openErrorPage();
   }
-  openErrorPage() {
-    this.appView.containerContent = this.appView.errorPage.container;
-  }
+
   addCardEvents() {
     this.appView.searchPage.gallery.galleryItems.cards.forEach((card) => {
       card.container.addEventListener('click', () => {
@@ -56,6 +53,7 @@ export class MainPageController {
           this.cart.cartItems.set(card.data.id, 1);
           this.refreshHeaderCart();
         }
+        this.cart.updateDiscountPrice();
       });
     });
   }
@@ -86,6 +84,7 @@ export class MainPageController {
         card.button.style.backgroundColor = '';
         card.button.innerText = 'Add to cart';
       }
+      this.cart.updateDiscountPrice();
     });
   }
 
@@ -103,5 +102,6 @@ export class MainPageController {
   refreshHeaderCart() {
     this.appView.header.totalAmount = this.cart.priceSum;
     this.appView.header.basketScoreAmount = this.cart.itemsAmount;
+    this.cart.updateDiscountPrice();
   }
 }

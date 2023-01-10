@@ -12,7 +12,6 @@ export class CartController {
   itemsPerPage: number;
   currentPage = 1;
   couponList = this.model.couponList;
-  appliedCoupons = new Set();
 
   constructor(header: HeaderView) {
     this.header = header;
@@ -25,6 +24,7 @@ export class CartController {
     this.paginationButtonEvents();
     this.view.promoInput.addEventListener('input', this.couponInputEvent.bind(this));
     this.view.promoInput.addEventListener('submit', (e) => e.preventDefault());
+    this.view.promoEnterIcon.addEventListener('click', this.promoButtonEvent.bind(this));
   }
 
   addInputEvent() {
@@ -89,6 +89,7 @@ export class CartController {
         }
         this.updateSummary();
         this.renderCartItems();
+        this.updateDiscountPrice();
       });
 
       card.increaseAmountButton.addEventListener('click', () => {
@@ -103,6 +104,7 @@ export class CartController {
           }
         }
         this.updateSummary();
+        this.updateDiscountPrice();
       });
     });
   }
@@ -114,6 +116,16 @@ export class CartController {
   }
 
   fillCartCards(start?: number, end?: number) {
+    if (this.cartItems.size === 0) {
+      this.view.itemsList.replaceChildren();
+      const h2empty = document.createElement('h2');
+      h2empty.innerText = 'Cart is empty';
+      h2empty.style.fontSize = '34px';
+      h2empty.style.alignSelf = 'center';
+      h2empty.style.marginTop = '40px';
+      this.view.itemsList.append(h2empty);
+      return;
+    }
     const arr = start === undefined && end === undefined ? this.cartItemCards : this.cartItemCards.slice(start, end);
     this.view.itemsList.replaceChildren();
     arr.forEach((item) => this.view.itemsList.append(item.container));
@@ -153,7 +165,7 @@ export class CartController {
     e.preventDefault();
     if (!(e.target instanceof HTMLInputElement)) return;
 
-    const x = this.model.couponList.get(e.target.value.toLocaleLowerCase());
+    const x = this.model.couponList.get(e.target.value.toLowerCase());
 
     if (x !== undefined) {
       this.view.promoEnterIcon.classList.remove('hidden-element');
@@ -162,8 +174,29 @@ export class CartController {
     }
   }
 
+  promoButtonEvent() {
+    if (!(this.view.promoInput instanceof HTMLInputElement)) return;
+    const x = this.view.promoInput.value.toLowerCase();
+    if (x === undefined || this.model.appliedCoupons.has(x)) return;
+    const codeObj = this.model.addPromoCode(x);
+    if (codeObj === undefined) return;
+    this.view.appliedCodesList.append(codeObj.container);
+    this.updateDiscountPrice();
+  }
+
   updateSummaryPrice() {
     this.view.noDiscountPrice.textContent = Math.round(this.model.priceSum).toString();
+  }
+
+  updateDiscountPrice() {
+    this.view.discountPrice.textContent = `$${this.model.discountSum.toString()}`;
+    if (this.model.discountSum === this.model.priceSum) {
+      this.view.discountPrice.classList.add('hidden-element');
+      this.view.noDiscountPrice.style.textDecoration = '';
+    } else {
+      this.view.discountPrice.classList.remove('hidden-element');
+      this.view.noDiscountPrice.style.textDecoration = 'line-through';
+    }
   }
 
   totalItemsAmount() {

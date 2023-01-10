@@ -56,6 +56,7 @@ export class CartView {
     const cartSummaryHeading = create('h3', 'order-summary__heading', cartOrderSummary, 'In cart');
     this.itemsCount = create('p', 'order-summary__items-amount', cartOrderSummary, '0 items');
     const promoForm = create('form', 'promo-code-form', cartOrderSummary);
+    promoForm.setAttribute('onsubmit', 'return false');
     const promoLabel = create('label', 'promo-label', promoForm, 'Promo code', ['id', 'promo-label']);
     const inputPromoWrap = create('div', 'input-promo-wrap', promoForm);
     this.promoInput = create(
@@ -77,7 +78,6 @@ export class CartView {
     this.codesWrap.classList.add('hidden-element');
     const appliedCodesSpan = create('span', 'applied-codes_span', this.codesWrap, 'Applied codes: ');
     this.appliedCodesList = create('ul', 'applied-codes__list', this.codesWrap);
-    create('li', 'applied-codes__item', this.appliedCodesList, 'EPM: -20%');
 
     const priceWrap = create('div', 'order-summary__price-wrap', cartOrderSummary);
     this.noDiscountPrice = create('span', 'order-summary__price', priceWrap, '$0');
