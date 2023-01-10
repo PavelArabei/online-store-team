@@ -40,6 +40,8 @@ export class ModalWindow {
   inputCard: HTMLInputElement;
   inputValid: HTMLInputElement;
   inputCVV: HTMLInputElement;
+  submitButton: HTMLElement;
+  buttonText: HTMLElement;
   constructor() {
     this.flag = false;
     this.container = document.createElement('div');
@@ -85,10 +87,10 @@ export class ModalWindow {
 
     this.mask([this.inputCard, this.inputValid, this.inputCVV]);
 
-    const button = create('a', 'modal__button', container, undefined, ['href', '#']);
-    button.addEventListener('click', this.isValidAll.bind(this));
+    this.submitButton = create('a', 'modal__button', container, undefined, ['href', '#']);
+    this.submitButton.addEventListener('click', this.isValidAll.bind(this));
 
-    create('p', 'modal__button-text', button, 'Confirm order');
+    this.buttonText = create('p', 'modal__button-text', this.submitButton, 'Confirm order');
   }
 
   isValidAll(event: Event) {

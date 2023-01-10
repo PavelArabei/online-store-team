@@ -57,6 +57,10 @@ export class CartModel {
     if (discount === undefined) return;
     const promo = new PromoCode(code.toLowerCase(), discount);
     this.appliedCoupons.set(code.toLowerCase(), promo);
+    promo.cross.addEventListener('click', () => {
+      promo.container.remove();
+      this.appliedCoupons.delete(code.toLowerCase());
+    });
     return promo;
   }
 

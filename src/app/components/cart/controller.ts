@@ -2,6 +2,7 @@
 import { CartModel } from './model';
 import { CartListItem, CartView } from './view';
 import { HeaderView } from '../header/view';
+import { ModalWindow } from '../modal-window/modal-window';
 
 export class CartController {
   header: HeaderView;
@@ -12,6 +13,7 @@ export class CartController {
   itemsPerPage: number;
   currentPage = 1;
   couponList = this.model.couponList;
+  modal = new ModalWindow();
 
   constructor(header: HeaderView) {
     this.header = header;
@@ -25,6 +27,28 @@ export class CartController {
     this.view.promoInput.addEventListener('input', this.couponInputEvent.bind(this));
     this.view.promoInput.addEventListener('submit', (e) => e.preventDefault());
     this.view.promoEnterIcon.addEventListener('click', this.promoButtonEvent.bind(this));
+    this.view.orderButton.addEventListener('click', () => this.view.container.append(this.modal.container));
+    this.modal.container.addEventListener('mousedown', (e) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.button === 0) {
+        this.modal.container.remove();
+        e.stopImmediatePropagation();
+      }
+    });
+    this.modal.closeButton.addEventListener('mousedown', (e) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.button === 0) {
+        this.modal.container.remove();
+        e.stopImmediatePropagation();
+      }
+    });
+    this.modal.submitButton.addEventListener('click', (e) => {
+      if (this.modal.isValidAll(e)) {
+        this.modal.buttonText.style.fontSize = '16px';
+        this.modal.buttonText.innerText = 'Success! Redirecting...';
+        setTimeout(() => (document.location.href = '/'), 3000);
+      }
+    });
   }
 
   addInputEvent() {
@@ -181,6 +205,7 @@ export class CartController {
     const codeObj = this.model.addPromoCode(x);
     if (codeObj === undefined) return;
     this.view.appliedCodesList.append(codeObj.container);
+    codeObj.cross.addEventListener('click', this.updateDiscountPrice.bind(this));
     this.updateDiscountPrice();
   }
 
