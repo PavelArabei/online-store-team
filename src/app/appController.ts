@@ -60,7 +60,6 @@ export class MainPageController {
 
   openItemPageFromCartEvent() {
     this.cart.view.itemsList.addEventListener('click', (e) => {
-      // if (e.target instanceof HTMLElement && Boolean(e.target.dataset.id)) console.log(e.target.dataset.id);
       if (e.target instanceof HTMLElement && Boolean(e.target.dataset.id)) {
         const card = this.appView.searchPage.gallery.galleryItems.cards.get(Number(e.target.dataset.id));
         if (card !== undefined) {

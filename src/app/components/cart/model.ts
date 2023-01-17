@@ -18,7 +18,6 @@ export class CartModel {
     return this._couponList;
   }
   get priceSum(): number {
-    console.log(this.cartItems);
     let sum = 0;
     for (const val of this.cartItems) {
       const obj = products.find((el) => el.id === val[0]);
@@ -74,6 +73,7 @@ export class PromoCode {
   discount: number;
   container: HTMLElement;
   cross: HTMLElement;
+
   constructor(code: string, discount: number) {
     this.name = code;
     this.discount = discount;

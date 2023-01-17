@@ -94,14 +94,3 @@ export class InputRangeAndNumb implements InputRangeAndNumbInterface {
     this.inputNumArr = [this.priceInputLeft.value, this.priceInputRight.value];
   }
 }
-//const rangeInput = document.querySelectorAll('#range-input1 input'),
-//  numInput = document.querySelectorAll('#number-input1 input'),
-//  progress = document.querySelector('#slider-range1 .sub-range-category__slider-progress') as HTMLDivElement;
-
-//const rangeInput2 = document.querySelectorAll('#range-input2 input'),
-//  numInput2 = document.querySelectorAll('#number-input2 input'),
-//  progress2 = document.querySelector('#slider-range2 .sub-range-category__slider-progress') as HTMLDivElement;
-
-//const firsInputToInput = new InputRangeAndNumb(rangeInput, numInput, progress, 100);
-//const secondInputToInput = new InputRangeAndNumb(rangeInput2, numInput2, progress2, 10);
-//export const inputRangeAndNumbArr = [firsInputToInput, secondInputToInput];

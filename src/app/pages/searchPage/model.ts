@@ -25,7 +25,6 @@ export class SearchModel {
     this.filters = filters;
   }
   resetFunction() {
-    console.log(this.mainObj);
     (this.mainObj.brand as Array<string>).splice(0);
     (this.mainObj.category as Array<string>).splice(0);
 
@@ -96,7 +95,6 @@ export class SearchModel {
     } else if (type === 'big') {
       this.gallery.galleryItemsCntainer.style.gridTemplateColumns = '1fr 1fr';
       localStorage.setItem('bigItems', 'on');
-      //img.style.filter = 'invert(42%) sepia(77%) saturate(1822%) hue-rotate(352deg) brightness(102%) contrast(108%)';
     }
   }
 
@@ -110,7 +108,6 @@ export class SearchModel {
 
     this.gallery.galleryItems.changeGallery(newProducts);
     if (newProducts.length === 0) {
-      console.log(this.gallery.galleryItemsCntainer);
       this.gallery.galleryItemsCntainer.textContent = 'No results';
       this.gallery.galleryItemsCntainer.classList.add('big-text');
     } else {
@@ -160,13 +157,9 @@ export class SearchModel {
 
     const minMaxPrice: number[] = [];
     const minMaxStock: number[] = [];
-    //const minMaxPriceAllProducts: number[] = [];
-    //const minMaxStockAllProducts: number[] = [];
     for (let i = 0; i < newProducts.length; i++) {
       minMaxPrice.push(newProducts[i].price);
       minMaxStock.push(newProducts[i].stock);
-      //minMaxPriceAllProducts.push(products[i].price);
-      // minMaxStockAllProducts.push(products[i].stock);
     }
 
     const inputFuncPrice = this.filters.filters.rangePrice.inputFunc;

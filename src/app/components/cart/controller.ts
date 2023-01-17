@@ -1,4 +1,3 @@
-// import { ProductInterface } from '../../interfaces/interfaces';
 import { CartModel } from './model';
 import { CartListItem, CartView } from './view';
 import { HeaderView } from '../header/view';
@@ -103,7 +102,6 @@ export class CartController {
     this.cartItemCards.forEach((card) => {
       card.decreaseAmountButton.addEventListener('click', () => {
         const itemInCart = this.cartItems.get(card.data.id);
-        console.log(itemInCart);
         if (itemInCart !== undefined) {
           if (itemInCart === 1) {
             this.cartItems.delete(card.data.id);

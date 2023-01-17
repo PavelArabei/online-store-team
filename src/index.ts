@@ -1,4 +1,8 @@
 import './style.scss';
 import { MainPageController } from './app/appController';
 
-new MainPageController();
+class App {
+  mainPage = new MainPageController();
+}
+
+new App();

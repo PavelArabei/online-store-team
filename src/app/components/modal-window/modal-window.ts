@@ -102,7 +102,6 @@ export class ModalWindow {
     const e = this.isValidCard();
     const f = this.isValidMounth();
     const g = this.isCVV();
-    console.log(a, b, c, d, e, f, g);
     if (a && b && c && d && e && f && g) {
       this.flag = true;
     } else {

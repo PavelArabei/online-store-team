@@ -25,10 +25,6 @@ export class ItemPageController {
         }
       });
     });
-
-    // this.view.mainImage.addEventListener('click', () => {
-    //   const src = this.view.mainImage.getAttribute('src');
-    // });
   }
 
   addToCartEvent() {

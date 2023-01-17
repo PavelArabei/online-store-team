@@ -1,4 +1,3 @@
-// import { ProductInterface } from '../../../interfaces/interfaces';
 import { create } from '../../../helpers/helpFunction';
 import { isHTMLElem } from '../../../helpers/helpFunction';
 export class GalleryHeader {

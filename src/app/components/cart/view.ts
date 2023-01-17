@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { create } from '../../helpers/helpFunction';
-import { CartController } from './controller';
 import { ProductInterface } from '../../interfaces/interfaces';
-import { products } from '../../data/products';
 
 export class CartView {
   container: HTMLElement;
@@ -19,6 +16,7 @@ export class CartView {
   noDiscountPrice: HTMLElement;
   discountPrice: HTMLElement;
   orderButton: HTMLElement;
+
   constructor() {
     this.container = document.createElement('div');
     this.container.classList.add('cart');
@@ -27,9 +25,9 @@ export class CartView {
     const cartOrderSummary = create('div', 'cart__order-summary', this.container);
 
     const cartHeader = create('div', 'cart__header', cartContent);
-    const heading = create('h2', 'cart__heading', cartHeader, 'Producst in cart');
+    create('h2', 'cart__heading', cartHeader, 'Producst in cart');
     const paginationControl = create('div', 'cart__pagination-control', cartHeader);
-    const paginationControlPageSpan = create('span', 'pagination-control__page-span', paginationControl, 'Page: ');
+    create('span', 'pagination-control__page-span', paginationControl, 'Page: ');
 
     this.paginationControlPageCountDown = create(
       'img',
@@ -48,16 +46,16 @@ export class CartView {
       'onSubmit',
       'return false',
     ]);
-    const pageLimitLabel = create('label', 'pg-limit', pageLimitForm, 'Items per page: ');
+    create('label', 'pg-limit', pageLimitForm, 'Items per page: ');
     this.itemsLimitInput = create('input', 'pages-limit', pageLimitForm);
 
     this.itemsList = create('ul', 'cart-items-list', cartContent);
 
-    const cartSummaryHeading = create('h3', 'order-summary__heading', cartOrderSummary, 'In cart');
+    create('h3', 'order-summary__heading', cartOrderSummary, 'In cart');
     this.itemsCount = create('p', 'order-summary__items-amount', cartOrderSummary, '0 items');
     const promoForm = create('form', 'promo-code-form', cartOrderSummary);
     promoForm.setAttribute('onsubmit', 'return false');
-    const promoLabel = create('label', 'promo-label', promoForm, 'Promo code', ['id', 'promo-label']);
+    create('label', 'promo-label', promoForm, 'Promo code', ['id', 'promo-label']);
     const inputPromoWrap = create('div', 'input-promo-wrap', promoForm);
     this.promoInput = create(
       'input',
@@ -76,7 +74,7 @@ export class CartView {
     this.promoEnterIcon.classList.add('hidden-element');
     this.codesWrap = create('div', 'order-summary__applied-codes-wrap', cartOrderSummary);
     this.codesWrap.classList.add('hidden-element');
-    const appliedCodesSpan = create('span', 'applied-codes_span', this.codesWrap, 'Applied codes: ');
+    create('span', 'applied-codes_span', this.codesWrap, 'Applied codes: ');
     this.appliedCodesList = create('ul', 'applied-codes__list', this.codesWrap);
 
     const priceWrap = create('div', 'order-summary__price-wrap', cartOrderSummary);
@@ -102,19 +100,19 @@ export class CartListItem {
     this.amount = amount;
     this.container = document.createElement('li');
     this.container.classList.add('cart-items-list__item');
-    const image = create('img', 'cart-item__image', this.container, '', ['src', `${item.images[0]}`]);
+    create('img', 'cart-item__image', this.container, '', ['src', `${item.images[0]}`]);
     const main = create('div', 'cart-item__main', this.container);
-    const h3 = create('h3', 'cart-item__heading', main, `${item.title}`);
-    const description = create('p', 'cart-item__description', main, `${item.description}`);
+    create('h3', 'cart-item__heading', main, `${item.title}`);
+    create('p', 'cart-item__description', main, `${item.description}`);
 
     const bottomContainer = create('div', 'cart-item__bottom-container', main);
     const statsWrap = create('div', 'cart-item__stats-wrapper', bottomContainer);
-    const stock = create('p', 'cart-item__stats-stock', statsWrap, `Stock: ${item.stock}`);
-    const brand = create('p', 'class="cart-item__stats-brand"', statsWrap, `Brand: ${item.brand}`);
-    const rating = create('p', 'cart-item__stats-rating', statsWrap, `Rating: ${item.rating}`);
+    create('p', 'cart-item__stats-stock', statsWrap, `Stock: ${item.stock}`);
+    create('p', 'class="cart-item__stats-brand"', statsWrap, `Brand: ${item.brand}`);
+    create('p', 'cart-item__stats-rating', statsWrap, `Rating: ${item.rating}`);
 
     const itemAmount = create('div', 'cart-item__item-amount', bottomContainer);
-    const amountSpan = create('span', 'cart-item__amount-span', itemAmount, 'In cart: ');
+    create('span', 'cart-item__amount-span', itemAmount, 'In cart: ');
     this.decreaseAmountButton = create('img', 'cart-item__arrow-left', itemAmount, '', [
       'src',
       './assets/img/icons/arrow-left.svg',

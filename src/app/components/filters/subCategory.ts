@@ -38,7 +38,6 @@ export class SubCategory {
         ['type', 'checkbox'],
         ['id', `${this.arr[i]}`]
       ) as HTMLInputElement;
-      //console.log(this._inputCategoryArr);
 
       if (this._inputCategoryArr.indexOf(this.arr[i]) >= 0) {
         (inputItem as HTMLInputElement).checked = true;
