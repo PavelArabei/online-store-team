@@ -1,3 +1,6 @@
+// todo: add colors as constants
+// refactor methods according to DRY principle
+
 import { SearchPage } from './pages/searchPage/view';
 import { AppView } from './appView';
 import { CartController } from './components/cart/controller';
@@ -87,14 +90,17 @@ export class MainPageController {
     });
   }
 
-  generateSearchPageContent() {
+  refreshAppView() {
     this.contentClass = this.appView.searchPage;
-    this.addCardEvents();
     this.appView.containerContent = this.contentClass.container;
   }
+
+  generateSearchPageContent() {
+    this.refreshAppView();
+    this.addCardEvents();
+  }
   goToMainPage() {
-    this.contentClass = this.appView.searchPage;
-    this.appView.containerContent = this.contentClass.container;
+    this.refreshAppView();
     this.updateCardsButtonState();
   }
 

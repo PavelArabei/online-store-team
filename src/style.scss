@@ -1,5 +1,7 @@
+// todo: add colors as constants
+
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
-@import 'scss/nullstyle';
+@import 'scss/_reset.scss';
 @import 'scss/_header.scss';
 @import 'scss/_input.scss';
 @import 'scss/_filter.scss';

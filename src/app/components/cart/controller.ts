@@ -1,7 +1,17 @@
+//todo: refactor CartController constructor into smaller parts
+//refactor methods according to DRY principle
+//refactor pagination (this.cartItems.size / this.itemsPerPage)
+//create helpers for paginationButtonEvents (DRY principle)
+
 import { CartModel } from './model';
 import { CartListItem, CartView } from './view';
 import { HeaderView } from '../header/view';
 import { ModalWindow } from '../modal-window/modal-window';
+
+enum mouseButtons {
+  left,
+  right,
+}
 
 export class CartController {
   header: HeaderView;
@@ -29,14 +39,14 @@ export class CartController {
     this.view.orderButton.addEventListener('click', () => this.view.container.append(this.modal.container));
     this.modal.container.addEventListener('mousedown', (e) => {
       if (e.target !== e.currentTarget) return;
-      if (e.button === 0) {
+      if (e.button === mouseButtons.left) {
         this.modal.container.remove();
         e.stopImmediatePropagation();
       }
     });
     this.modal.closeButton.addEventListener('mousedown', (e) => {
       if (e.target !== e.currentTarget) return;
-      if (e.button === 0) {
+      if (e.button === mouseButtons.left) {
         this.modal.container.remove();
         e.stopImmediatePropagation();
       }
@@ -72,13 +82,14 @@ export class CartController {
     });
   }
 
-  addItem(item: number, amount: number): void {
+  updateCartItemAmount(item: number, amount: number): void {
     if (amount === 0 && this.cartItems.has(item)) {
       this.cartItems.delete(item);
     } else {
       this.cartItems.set(item, amount);
     }
   }
+
   get priceSum() {
     return Math.round(this.model.priceSum);
   }
@@ -102,8 +113,8 @@ export class CartController {
     this.cartItemCards.forEach((card) => {
       card.decreaseAmountButton.addEventListener('click', () => {
         const itemInCart = this.cartItems.get(card.data.id);
-        if (itemInCart !== undefined) {
-          if (itemInCart === 1) {
+        if (itemInCart) {
+          if (itemInCart <= 1) {
             this.cartItems.delete(card.data.id);
           } else {
             this.cartItems.set(card.data.id, itemInCart - 1);
@@ -117,7 +128,7 @@ export class CartController {
       card.increaseAmountButton.addEventListener('click', () => {
         const itemInCart = this.cartItems.get(card.data.id);
         console.log(itemInCart);
-        if (itemInCart !== undefined) {
+        if (itemInCart) {
           if (itemInCart === card.data.stock) {
             return;
           } else {
@@ -189,7 +200,7 @@ export class CartController {
 
     const x = this.model.couponList.get(e.target.value.toLowerCase());
 
-    if (x !== undefined) {
+    if (x) {
       this.view.promoEnterIcon.classList.remove('hidden-element');
     } else {
       this.view.promoEnterIcon.classList.add('hidden-element');
@@ -222,9 +233,10 @@ export class CartController {
     }
   }
 
-  totalItemsAmount() {
+  getTotalItemsAmount() {
     return [...this.model.cartItems.values()].reduce((sum, cur) => sum + cur, 0);
   }
+
   updateSummary() {
     this.header.totalAmount = Math.round(this.model.priceSum);
     this.header.basketScoreAmount = this.model.itemsAmount;

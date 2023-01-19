@@ -4,6 +4,7 @@ import { SearchPageController } from './pages/searchPage/controller';
 import { create } from './helpers/helpFunction';
 import { Footer } from './components/footer/footer';
 import ErrorPage from './pages/errorPage/errorPage';
+
 export class AppView {
   header: HeaderView;
   footer: Footer;
@@ -12,6 +13,7 @@ export class AppView {
   container: HTMLElement;
   searchPageController: SearchPageController;
   errorPage: ErrorPage;
+
   constructor() {
     this.errorPage = new ErrorPage();
     this.searchPageController = new SearchPageController();
@@ -19,9 +21,6 @@ export class AppView {
     this.container = document.createElement('div');
     this.container.classList.add('container');
     this.documentBody = document.body;
-
-    console.log(this.container);
-
     this.header = new HeaderView();
     this.documentBody.append(this.header.container, this.container);
     this.footer = new Footer();

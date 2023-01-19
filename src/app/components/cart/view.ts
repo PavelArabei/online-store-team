@@ -25,7 +25,7 @@ export class CartView {
     const cartOrderSummary = create('div', 'cart__order-summary', this.container);
 
     const cartHeader = create('div', 'cart__header', cartContent);
-    create('h2', 'cart__heading', cartHeader, 'Producst in cart');
+    create('h2', 'cart__heading', cartHeader, 'Products in cart');
     const paginationControl = create('div', 'cart__pagination-control', cartHeader);
     create('span', 'pagination-control__page-span', paginationControl, 'Page: ');
 

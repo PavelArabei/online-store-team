@@ -1,3 +1,6 @@
+//TODO: updateCardButton() &  addToCartEvent() - refactor to DRY
+// buyNowButtonEvent() - refactor to DRY
+
 import { ProductInterface } from '../../interfaces/interfaces';
 import { CartController } from '../../components/cart/controller';
 import { ItemPageView } from './view';
@@ -33,7 +36,7 @@ export class ItemPageController {
       this.view.addButton.innerText = 'Add to cart';
       this.view.addButton.style.backgroundColor = '';
     } else {
-      this.cart.addItem(this.data.id, 1);
+      this.cart.updateCartItemAmount(this.data.id, 1);
 
       this.view.addButton.innerText = 'Remove';
       this.view.addButton.style.backgroundColor = '#730600';
