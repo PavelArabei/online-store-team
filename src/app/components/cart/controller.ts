@@ -9,8 +9,8 @@ import { HeaderView } from '../header/view';
 import { ModalWindow } from '../modal-window/modal-window';
 
 enum mouseButtons {
-  left,
-  right,
+  left = 0,
+  right = 2,
 }
 
 export class CartController {
