@@ -1,0 +1,35 @@
+.footer {
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  &__year {
+  }
+  &__rs-shool-img,
+  &__git-hub-img {
+    cursor: pointer;
+    transition: filter 0.1s, transform 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__rs-shool-img {
+    width: 70px;
+    height: 70px;
+    &:hover {
+      filter: invert(100%);
+    }
+  }
+  &__git-hub-img {
+    width: 60px;
+    height: 60px;
+    &:hover {
+      filter: invert(42%) sepia(77%) saturate(1822%) hue-rotate(352deg) brightness(102%) contrast(108%);
+    }
+  }
+}

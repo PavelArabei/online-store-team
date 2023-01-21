@@ -1,0 +1,19 @@
+<svg width="20.000000000000004" height="20.000000000000004" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="22" width="22" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 16.499992370605582,16.49999046325671) " ry="2.5" rx="2.5" id="svg_20" cy="16.499991" cx="16.499992" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 3.50000905990628,16.499990463256847) " ry="2.5" rx="2.5" id="svg_21" cy="16.499991" cx="3.500008" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 10.000000953674212,16.499992370605412) " ry="2.5" rx="2.5" id="svg_22" cy="16.499992" cx="10" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 15.73640346527095,5.2052078247070295) " ry="2.5" rx="2.5" id="svg_23" cy="3.400154" cx="10.030634" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 9.23641109466564,5.205206871032688) " ry="2.5" rx="2.5" id="svg_24" cy="3.400154" cx="3.530642" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 22.23639488220214,5.205206871032707) " ry="2.5" rx="2.5" id="svg_25" cy="3.400154" cx="16.530625" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 9.236412048339941,11.705200195312466) " ry="2.5" rx="2.5" id="svg_26" cy="9.900146" cx="3.530642" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 22.236396789550927,11.70520114898677) " ry="2.5" rx="2.5" id="svg_27" cy="9.900146" cx="16.530626" stroke-width="2" fill="#fff"/>
+  <ellipse stroke="#000" canvas="#000000" canvas-opacity="0" transform="rotate(-1 15.736403465271133,11.705200195312424) " ry="2.5" rx="2.5" id="svg_28" cy="9.900146" cx="10.030633" stroke-width="2" fill="#fff"/>
+ </g>
+</svg>

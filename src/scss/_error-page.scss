@@ -1,0 +1,148 @@
+.error {
+  &__flex-container {
+    background-color: #fafafa;
+    position: absolute;
+    display: flex;
+    height: 578px;
+    width: 100%;
+    left: 0;
+    top: 170px;
+    overflow: hidden;
+    z-index: 10;
+    justify-content: center;
+  }
+  &__img {
+    width: 1071px;
+    height: 609px;
+  }
+  &__flex-discription {
+    position: relative;
+    top: 25px;
+    right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__404 {
+    font-size: 128px;
+    color: #de631f;
+  }
+  &__text {
+    font-size: 64px;
+    margin-bottom: 93px;
+    text-align: center;
+  }
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 288px;
+    height: 75px;
+    background-color: #ff630b;
+    border-radius: 5px;
+  }
+  &__link-text {
+    font-size: 40px;
+    color: white;
+  }
+}
+@media (max-width: 1300px) {
+  .error {
+    &__flex-container {
+      height: 578px;
+      top: 140px;
+    }
+    &__img {
+      width: 800px;
+      height: 450px;
+    }
+    &__flex-discription {
+      top: 25px;
+      right: 110px;
+    }
+    &__404 {
+      font-size: 96px;
+    }
+    &__text {
+      font-size: 48px;
+      margin-bottom: 50px;
+    }
+    &__link {
+      width: 210px;
+      height: 60px;
+    }
+    &__link-text {
+      font-size: 32px;
+    }
+  }
+}
+@media (max-width: 850px) {
+  .error {
+    &__flex-container {
+      height: 400px;
+      top: 140px;
+    }
+    &__img {
+      width: 400px;
+      height: 270px;
+    }
+    &__flex-discription {
+      top: 0px;
+      right: 18vh;
+    }
+    &__404 {
+      font-size: 64px;
+    }
+    &__text {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    &__link {
+      width: 180px;
+      height: 40px;
+    }
+    &__link-text {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .error {
+    &__flex-container {
+      height: 400px;
+      top: 100px;
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    &__img {
+      width: 300px;
+      height: 200px;
+      order: 2;
+
+    }
+    &__flex-discription {
+      position: relative;
+      top: 0px;
+      right: auto;
+      order: 1;
+      margin-bottom: 30px;
+    }
+    &__404 {
+      font-size: 64px;
+    }
+    &__text {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    &__link {
+      width: 180px;
+      height: 40px;
+    }
+    &__link-text {
+      font-size: 24px;
+    }
+  }
+}

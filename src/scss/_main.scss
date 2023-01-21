@@ -1,0 +1,158 @@
+.subtitle {
+  font-size: 24px;
+  cursor: default;
+}
+.button {
+  background-color: #ff630b;
+  padding: 3px 10px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+.main-page {
+  display: flex;
+  &__all-products {
+    width: 100%;
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px 0 10px;
+  }
+
+  &__allSort {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__configuratin {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  &__burger {
+    display: none;
+  }
+
+  &__small-configuration {
+    filter: invert(42%) sepia(77%) saturate(1822%) hue-rotate(352deg) brightness(102%) contrast(108%);
+  }
+
+  &__small-configuration:active,
+  &__big-configuration:active {
+    animation: click 0.2s;
+  }
+
+  &__sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__sort-tittle {
+    font-size: 24px;
+  }
+
+  &__sort-selector {
+    position: relative;
+    margin-top: 3px;
+    gap: 3px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    width: 100px;
+    height: 28px;
+    font-size: 24px;
+    color: #ff630b;
+    z-index: 3;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+
+  &__button-container {
+    display: flex;
+    cursor: pointer;
+  }
+
+  &__sort-item {
+    cursor: pointer;
+    background: #f8f8f8;
+    height: 30px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-left: 3px solid #ff630b;
+  }
+
+  &__sort-direction {
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  &__sort-img {
+    width: 5px;
+    height: 5px;
+    margin-top: 7px;
+  }
+
+  &__results {
+    font-size: 24px;
+  }
+}
+.mirror {
+  transform: scale(1, -1);
+}
+
+@keyframes click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 850px) {
+  .main-page {
+    //width: 200px;
+    &__configuratin {
+      display: none;
+    }
+
+    &__sort-selector {
+      margin-top: 0px;
+      width: 70px;
+      height: 18px;
+      font-size: 18px;
+    }
+
+    &__results {
+      font-size: 18px;
+    }
+  }
+}
+@media (max-width: 520px) {
+  .main-page {
+    &__sort-selector {
+      width: 70px;
+    }
+    &__results {
+      width: 80px;
+      font-size: 18px;
+    }
+    &__burger {
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

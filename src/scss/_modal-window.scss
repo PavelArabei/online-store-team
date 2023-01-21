@@ -1,0 +1,185 @@
+.modal {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #0e1015b6;
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow-y: scroll;
+
+  &__window {
+    transition: all 0.3s ease-out;
+    position: absolute;
+    z-index: 4;
+    top: 40px;
+    width: 696px;
+    height: auto;
+    //top: -70%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 34px;
+    cursor: auto;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    cursor: pointer;
+  }
+
+  &__group-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-size: 32px;
+    color: #494949;
+  }
+  &__input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  &__input-text-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 5px;
+  }
+  &__input-title {
+    font-size: 16px;
+    color: #808080;
+  }
+  &__input-error {
+    color: red;
+    font-size: 14px;
+    display: block;
+    height: 10px;
+  }
+  &__input {
+    border: 2px solid #dddddd;
+    border-radius: 5px;
+    height: 28px;
+    font-size: 20px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+  }
+  &__input-img {
+    width: 28px;
+    height: 22px;
+    position: absolute;
+    right: 7px;
+    top: 25px;
+  }
+
+  &__input-tel {
+    width: 265px;
+  }
+  &__input-name,
+  &__input-email {
+    width: 306px;
+  }
+  //&__input-city {
+  //  width: 240px;
+  //}
+  &__input-address {
+    width: 445px;
+  }
+  //&__input-apt {
+  //  width: 100px;
+  //}
+  &__input-card {
+    width: 270px;
+  }
+  &__input-valid {
+    width: 80px;
+  }
+  &__input-cvv {
+    width: 68px;
+  }
+  &__button-text {
+    color: white;
+    font-size: 24px;
+  }
+  &__button {
+    margin: 0 auto;
+    width: 234px;
+    height: 49px;
+    border: 2px solid #0671bf;
+    border-radius: 5px;
+    background-color: #245aab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.validInput {
+  border: 2px solid #00b754;
+}
+.invalidInput {
+  border: 2px solid #ee3131;
+}
+.valid {
+  color: #00b754;
+}
+.invalid {
+  color: #ee3131;
+}
+
+.popUpActive {
+  top: 15%;
+}
+
+@media (max-width: 1300px) {
+}
+@media (max-width: 850px) {
+  .modal {
+    &__window {
+      width: 450px;
+    }
+    &__group-container {
+      gap: 16px;
+      margin-bottom: 5px;
+    }
+    &__title {
+      font-size: 26px;
+    }
+    &__input-container {
+      gap: 5px;
+    }
+    &__input-img {
+      right: 14px;
+    }
+    &__input-name,
+    &__input-email,
+    &__input-tel,
+    &__input-card {
+      width: 250px;
+      margin-right: 10px;
+    }
+    &__input-address {
+      width: 350px;
+    }
+    &__button {
+      margin-top: 15px;
+    }
+  }
+}
+@media (max-width: 520px) {
+  .modal {
+    &__window {
+      width: 300px;
+    }
+    &__input-address {
+      width: 250px;
+    }
+  }
+}
