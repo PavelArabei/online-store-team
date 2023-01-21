@@ -1,4 +1,4 @@
-import './style.scss';
+import './scss/style.scss';
 import { MainPageController } from './app/appController';
 
 class App {

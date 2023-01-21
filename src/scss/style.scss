@@ -1,0 +1,50 @@
+// todo: add colors as constants
+
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import '_reset.scss';
+@import '_header.scss';
+@import '_input.scss';
+@import '_filter.scss';
+@import '_main.scss';
+@import '_itemPage.scss';
+@import '_gallery.scss';
+@import 'modal-window';
+@import '_imagePopup.scss';
+@import '_cart.scss';
+@import '_footer';
+@import '_error-page.scss';
+
+body {
+  font-family: 'Didact Gothic', sans-serif;
+  background-color: #fafafa;
+}
+.container {
+  width: 1185px;
+  margin: 0 auto;
+}
+.main {
+  margin-top: 30px;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+@media (max-width: 1300px) {
+  .container {
+    width: 830px;
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    max-width: 500px;
+  }
+}
+@media (max-width: 520px) {
+  .container {
+    max-width: 300px;
+  }
+}
+
+#promo-label {
+  font-size: 20px;
+}
